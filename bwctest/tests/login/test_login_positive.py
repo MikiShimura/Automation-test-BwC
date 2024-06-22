@@ -1,13 +1,13 @@
 import pytest
-from bwctest.src.pages.LoginPage import LoginPage
+from src.pages.LoginPage import LoginPage
 
-# @pytest.mark.usefixtures("init_driver")
-# class TestLoginPositive:
+@pytest.mark.usefixtures("init_driver")
+class TestLoginPositive:
 
-#     @pytest.mark.tcid103
-#     def test_login_existing_admin(self):
-#         login = LoginPage(self.driver)
-#         login.go_to_login()
+    @pytest.mark.tcid103
+    def test_login_existing_admin(self):
+        login = LoginPage(self.driver)
+        login.go_to_login()
         # my_account.go_to_my_account()
         # my_account.input_login_username("asdfghjk")
         # my_account.input_login_password("asdf1234")

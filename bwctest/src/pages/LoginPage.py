@@ -1,6 +1,6 @@
-from bwctest.src.SeleniumExtended import SeleniumExtended
-from bwctest.src.pages.locators.LoginPageLocators import LoginPageLocators
-from bwctest.src.helpers.config_helpers import get_base_url
+from src.SeleniumExtended import SeleniumExtended
+from src.pages.locators.LoginPageLocators import LoginPageLocators
+from src.helpers.config_helpers import get_base_url
 
 class LoginPage(LoginPageLocators):
 
