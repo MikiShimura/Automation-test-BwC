@@ -13,7 +13,7 @@ class TestLoginPositive:
 
         login.go_to_login()
         login.input_login_username("John")
-        login.input_login_password(GenericConfigs.ADMIN_PASS)
+        login.input_login_password(GenericConfigs.ADMIN["pass"])
         login.click_login_button()
 
         expected_error = GenericConfigs.LOGIN_INVAILD_CREDENCIAL_ERR_MSG
@@ -24,7 +24,7 @@ class TestLoginPositive:
         login = LoginPage(self.driver)
 
         login.go_to_login()
-        login.input_login_username(GenericConfigs.ADMIN_NAME)
+        login.input_login_username(GenericConfigs.ADMIN["name"])
         login.input_login_password("1234")
         login.click_login_button()
 
@@ -37,7 +37,7 @@ class TestLoginPositive:
 
         login.go_to_login()
         login.input_login_username("John")
-        login.input_login_password(GenericConfigs.VALID_USER_PASS)
+        login.input_login_password(GenericConfigs.VALID_USER["pass"])
         login.click_login_button()
 
         expected_error = GenericConfigs.LOGIN_INVAILD_CREDENCIAL_ERR_MSG
@@ -48,7 +48,7 @@ class TestLoginPositive:
         login = LoginPage(self.driver)
 
         login.go_to_login()
-        login.input_login_username(GenericConfigs.VALID_USER_NAME)
+        login.input_login_username(GenericConfigs.VALID_USER["name"])
         login.input_login_password("1234")
         login.click_login_button()
 
