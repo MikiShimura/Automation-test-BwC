@@ -23,3 +23,6 @@ class LoginPage(LoginPageLocators):
 
     def click_login_button(self):
         self.sl.wait_and_click(self.LOGIN_BTN)
+
+    def wait_until_error_message_is_displayed(self, exp_err):
+        self.sl.wait_until_element_contains_text(self.ALERT_ERR_MSG, exp_err)

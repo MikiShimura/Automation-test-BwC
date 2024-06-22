@@ -11,4 +11,4 @@ class HomePage(HomePageLocators):
     #     return self.sl.wait_and_get_text(self.ALERT_SUCCESS_MESSAGE)
     
     def wait_until_success_message_is_displayed(self, exp_msg):
-        self.sl.wait_until_element_contains_text(self.ALERT_SUCCESS_MESSAGE, exp_msg)
+        self.sl.wait_until_element_contains_text(self.ALERT_SUCCESS_MSG, exp_msg)

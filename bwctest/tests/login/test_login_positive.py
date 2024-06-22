@@ -19,9 +19,9 @@ class TestLoginPositive:
         login.click_login_button()
 
         # check expected_text
-        expected_message = "Welcome back!"
+        expected_message = GenericConfigs.LOGIN_SUCCESS_MSG 
         homepage.wait_until_success_message_is_displayed(expected_message)
-        
+
         # success_message = homepage.get_success_message()
         # expected_message = "Welcome back!"
         # assert success_message==expected_message, "Login success message is not displayed correctly."
