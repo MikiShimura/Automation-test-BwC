@@ -26,3 +26,12 @@ class LoginPage(LoginPageLocators):
 
     def wait_until_error_message_is_displayed(self, exp_err):
         self.sl.wait_until_element_contains_text(self.ALERT_ERR_MSG, exp_err)
+
+    def wait_until_username_label_is_displayed(self, exp_text):
+        self.sl.wait_until_element_contains_text(self.LOGIN_USERNAME_LABEL, exp_text)
+
+    def wait_until_password_label_is_displayed(self, exp_text):
+        self.sl.wait_until_element_contains_text(self.LOGIN_PASSWORD_LABEL, exp_text)
+
+    def wait_until_login_button_is_displayed(self, exp_text):
+        self.sl.wait_until_element_contains_text(self.LOGIN_BTN, exp_text)
