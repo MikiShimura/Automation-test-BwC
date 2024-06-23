@@ -7,7 +7,7 @@ class GenericConfigs:
     
     VALID_USER = {
         "username" : "Miki",
-        "email" : "miki@test.com"
+        "email" : "miki@test.com",
         "password" : "Miki"
     }
 
