@@ -1,13 +1,14 @@
 class GenericConfigs:
 
     ADMIN = {
-        "name" : "Admin",
-        "pass" : "Admin"
+        "username" : "Admin",
+        "password" : "Admin"
     }
     
     VALID_USER = {
-        "name" : "Miki",
-        "pass" : "Miki"
+        "username" : "Miki",
+        "email" : "miki@test.com"
+        "password" : "Miki"
     }
 
     LOGIN_SUCCESS_MSG = "Welcome back!"

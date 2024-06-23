@@ -14,8 +14,8 @@ class TestLoginPositive:
         homepage = HomePage(self.driver)
 
         login.go_to_login()
-        login.input_login_username(GenericConfigs.ADMIN["name"])
-        login.input_login_password(GenericConfigs.ADMIN["pass"])
+        login.input_login_username(GenericConfigs.ADMIN["username"])
+        login.input_login_password(GenericConfigs.ADMIN["password"])
         login.click_login_button()
 
         # check expected_text
@@ -39,8 +39,8 @@ class TestLoginPositive:
         homepage = HomePage(self.driver)
 
         login.go_to_login()
-        login.input_login_username(GenericConfigs.VALID_USER["name"])
-        login.input_login_password(GenericConfigs.VALID_USER["pass"])
+        login.input_login_username(GenericConfigs.VALID_USER["username"])
+        login.input_login_password(GenericConfigs.VALID_USER["password"])
         login.click_login_button()
 
         # check expected_text
