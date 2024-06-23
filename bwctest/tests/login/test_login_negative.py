@@ -5,7 +5,7 @@ from src.configs.generic_configs import GenericConfigs
 
 
 @pytest.mark.usefixtures("init_driver")
-class TestLoginPositive:
+class TestLoginNegative:
 
     @pytest.mark.tcid104
     def test_login_invaild_admin_username(self):
