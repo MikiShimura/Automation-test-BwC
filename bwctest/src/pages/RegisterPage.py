@@ -29,3 +29,15 @@ class RegisterPage(RegisterPageLocators):
     
     def wait_until_error_message_is_displayed(self, exp_err):
         self.sl.wait_until_element_contains_text(self.ALERT_ERR_MSG, exp_err)
+
+    def wait_until_username_label_is_displayed(self, exp_text):
+        self.sl.wait_until_element_contains_text(self.REGISTER_USERNAME_LABEL, exp_text)
+    
+    def wait_until_email_label_is_displayed(self, exp_text):
+        self.sl.wait_until_element_contains_text(self.REGISTER_EMAIL_LABEL, exp_text)
+
+    def wait_until_password_label_is_displayed(self, exp_text):
+        self.sl.wait_until_element_contains_text(self.REGISTER_PASSWORD_LABEL, exp_text)
+
+    def wait_until_register_button_is_displayed(self, exp_text):
+        self.sl.wait_until_element_contains_text(self.REGISTER_BTN, exp_text)
