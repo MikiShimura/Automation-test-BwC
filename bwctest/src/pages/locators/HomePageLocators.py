@@ -5,6 +5,7 @@ class HomePageLocators():
 
     NAVIGATION_SEC = (By.CSS_SELECTOR, "nav")
     APP_IMG = (By.XPATH, "/html/body/main/div[1]")
+    MAP_SEC = (By.CSS_SELECTOR, "canvas")
     SEARCH_SEC = (By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div")
     INDEX_MAP_SEC = (By.ID, "index-map")
     SITES_SEC = (By.XPATH, "/html/body/main/div[2]/div/div[3]/div[2]")

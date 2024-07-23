@@ -24,3 +24,24 @@ class HomePage(HomePageLocators):
     def get_navigation_element(self):
         elements = self.sl.wait_and_get_elements(self.NAVIGATION_SEC)
         return elements[0]
+    
+    def wait_until_app_image_is_displayed(self):
+        self.sl.wait_until_element_is_visible(self.APP_IMG)
+
+    def get_app_image_element(self):
+        elements = self.sl.wait_and_get_elements(self.APP_IMG)
+        return elements[0]
+    
+    def wait_until_map_is_displayed(self):
+        self.sl.wait_until_element_is_visible(self.MAP_SEC)
+
+    def get_map_element(self):
+        elements = self.sl.wait_and_get_elements(self.MAP_SEC)
+        return elements[0]
+
+    def wait_until_sites_section_is_displayed(self):
+        self.sl.wait_until_element_is_visible(self.SITES_SEC)
+
+    def get_sites_section_element(self):
+        elements = self.sl.wait_and_get_elements(self.SITES_SEC)
+        return elements[0]
