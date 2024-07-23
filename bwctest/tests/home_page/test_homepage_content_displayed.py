@@ -67,3 +67,43 @@ class TestHomepageContentDisplayed:
         sites_location = sites.location
         
         assert map_location['y'] < sites_location['y'], "Sites should be displayed under map"
+
+    @pytest.mark.tcid306
+    def test_site_image_is_displayed_in_each_site_card(self):
+        homepage = HomePage(self.driver)
+        
+        homepage.go_to_homepage()
+
+        all_sites = homepage.get_all_sites()
+        for n in range(len(all_sites)):
+            homepage.get_site_image(all_sites[n])
+    
+    @pytest.mark.tcid307
+    def test_site_title_is_displayed_in_each_site_card(self):
+        homepage = HomePage(self.driver)
+        
+        homepage.go_to_homepage()
+
+        all_sites = homepage.get_all_sites()
+        for n in range(len(all_sites)):
+            homepage.get_site_title(all_sites[n])
+    
+    @pytest.mark.tcid308
+    def test_site_categories_are_displayed_in_each_site_card(self):
+        homepage = HomePage(self.driver)
+        
+        homepage.go_to_homepage()
+
+        all_sites = homepage.get_all_sites()
+        for n in range(len(all_sites)):
+            homepage.get_site_categories(all_sites[n])
+
+    @pytest.mark.tcid309
+    def test_site_ages_are_displayed_in_each_site_card(self):
+        homepage = HomePage(self.driver)
+        
+        homepage.go_to_homepage()
+
+        all_sites = homepage.get_all_sites()
+        for n in range(len(all_sites)):
+            homepage.get_site_ages(all_sites[n])

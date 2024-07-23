@@ -1,6 +1,7 @@
 from src.SeleniumExtended import SeleniumExtended
 from src.pages.locators.HomePageLocators import HomePageLocators
 from src.helpers.config_helpers import get_base_url
+from selenium.webdriver.common.by import By
 
 class HomePage(HomePageLocators):
 
@@ -45,3 +46,18 @@ class HomePage(HomePageLocators):
     def get_sites_section_element(self):
         elements = self.sl.wait_and_get_elements(self.SITES_SEC)
         return elements[0]
+    
+    def get_all_sites(self):
+        return self.sl.wait_and_get_elements(self.ALL_SITE_CARDS)
+
+    def get_site_image(self, parent):
+        return parent.find_element(By.CSS_SELECTOR, 'img.a')
+    
+    def get_site_title(self, parent):
+        return parent.find_element(self.SITE_TITLE[0], self.SITE_TITLE[1])
+    
+    def get_site_categories(self, parent):
+        return parent.find_element(self.SITE_CATEGORIES[0], self.SITE_CATEGORIES[1])
+    
+    def get_site_ages(self, parent):
+        return parent.find_element(self.SITE_AGES[0], self.SITE_AGES[1])
