@@ -1,6 +1,7 @@
 from src.SeleniumExtended import SeleniumExtended
 from src.pages.locators.LoginPageLocators import LoginPageLocators
 from src.helpers.config_helpers import get_base_url
+from src.configs.generic_configs import GenericConfigs
 
 class LoginPage(LoginPageLocators):
 
@@ -15,14 +16,26 @@ class LoginPage(LoginPageLocators):
         login_url = base_url + self.endpoint
         self.driver.get(login_url)
 
-    def input_login_username(self, username):
+    def input_login_username(self, username="John"):
         self.sl.wait_and_input_text(self.LOGIN_USERNAME, username)
 
-    def input_login_password(self, password):
+    def input_login_password(self, password="1234"):
         self.sl.wait_and_input_text(self.LOGIN_PASSWORD, password)
 
     def click_login_button(self):
         self.sl.wait_and_click(self.LOGIN_BTN)
+
+    def valid_login(self, admin=False):
+        if admin:
+            self.go_to_login()
+            self.input_login_username(GenericConfigs.ADMIN["username"])
+            self.input_login_password(GenericConfigs.ADMIN["password"])
+            self.click_login_button()
+        else:
+            self.go_to_login()
+            self.input_login_username(GenericConfigs.VALID_USER["username"])
+            self.input_login_password(GenericConfigs.VALID_USER["password"])
+            self.click_login_button()
 
     def wait_until_error_message_is_displayed(self, exp_err):
         self.sl.wait_until_element_contains_text(self.ALERT_ERR_MSG, exp_err)

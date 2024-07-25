@@ -13,10 +13,7 @@ class TestLoginPositive:
         login = LoginPage(self.driver)
         homepage = HomePage(self.driver)
 
-        login.go_to_login()
-        login.input_login_username(GenericConfigs.ADMIN["username"])
-        login.input_login_password(GenericConfigs.ADMIN["password"])
-        login.click_login_button()
+        login.valid_login(admin=True)
 
         # check expected_text
         expected_message = GenericConfigs.LOGIN_SUCCESS_MSG 
@@ -38,10 +35,7 @@ class TestLoginPositive:
         login = LoginPage(self.driver)
         homepage = HomePage(self.driver)
 
-        login.go_to_login()
-        login.input_login_username(GenericConfigs.VALID_USER["username"])
-        login.input_login_password(GenericConfigs.VALID_USER["password"])
-        login.click_login_button()
+        login.valid_login()
 
         # check expected_text
         expected_message = GenericConfigs.LOGIN_SUCCESS_MSG 
