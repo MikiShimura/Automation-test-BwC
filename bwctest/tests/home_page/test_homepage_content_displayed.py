@@ -1,5 +1,6 @@
 import pytest
 from src.pages.HomePage import HomePage
+from src.pages.NavigationBar import NavigationBar
 
 
 @pytest.mark.usefixtures("init_driver")
@@ -107,3 +108,13 @@ class TestHomepageContentDisplayed:
         all_sites = homepage.get_all_sites()
         for n in range(len(all_sites)):
             homepage.get_site_ages(all_sites[n])
+
+    @pytest.mark.tcid313
+    def test_post_new_site_button_is_not_displayed(self):
+        homepage = HomePage(self.driver)
+        navigation = NavigationBar(self.driver)
+
+        homepage.go_to_homepage()
+
+        navigation.wait_until_post_button_is_not_displayed()
+        
