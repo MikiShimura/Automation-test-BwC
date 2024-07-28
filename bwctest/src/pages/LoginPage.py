@@ -26,16 +26,16 @@ class LoginPage(LoginPageLocators):
         self.sl.wait_and_click(self.LOGIN_BTN)
 
     def valid_login(self, admin=False):
+        self.go_to_login()
+        
         if admin:
-            self.go_to_login()
             self.input_login_username(GenericConfigs.ADMIN["username"])
             self.input_login_password(GenericConfigs.ADMIN["password"])
-            self.click_login_button()
         else:
-            self.go_to_login()
             self.input_login_username(GenericConfigs.VALID_USER["username"])
             self.input_login_password(GenericConfigs.VALID_USER["password"])
-            self.click_login_button()
+        
+        self.click_login_button()
 
     def wait_until_error_message_is_displayed(self, exp_err):
         self.sl.wait_until_element_contains_text(self.ALERT_ERR_MSG, exp_err)
