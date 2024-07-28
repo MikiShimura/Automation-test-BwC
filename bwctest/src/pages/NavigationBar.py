@@ -12,3 +12,6 @@ class NavigationBar(NavigationBarLocators):
 
     def wait_until_post_button_is_not_displayed(self):
         self.sl.wait_until_element_is_invisible(self.POST_BTN)
+
+    def click_post_new_site_button(self):
+        self.sl.wait_and_click(self.POST_BTN)
