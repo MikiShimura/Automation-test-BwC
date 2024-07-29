@@ -1,7 +1,9 @@
 import pytest
+from src.pages.LoginPage import LoginPage
 from src.pages.HomePage import HomePage
 from src.pages.NavigationBar import NavigationBar
 from src.pages.SearchSection import SearchSection
+from src.configs.generic_configs import GenericConfigs
 
 
 @pytest.mark.usefixtures("init_driver")
@@ -118,6 +120,19 @@ class TestHomepageContentDisplayed:
         homepage.go_to_homepage()
 
         navigation.wait_until_post_button_is_not_displayed()
+
+    @pytest.mark.tcid314
+    def test_post_new_site_button_is_displayed_for_admin(self):
+        login = LoginPage(self.driver)
+        homepage = HomePage(self.driver)
+        navigation = NavigationBar(self.driver)
+
+        login.valid_login(admin=True)
+
+        expected_message = GenericConfigs.LOGIN_SUCCESS_MSG 
+        homepage.wait_until_success_message_is_displayed(expected_message)
+
+        navigation.wait_until_post_button_is_displayed()
 
     @pytest.mark.tcid318
     def test_search_result_message_is_displayed(self):

@@ -8,20 +8,7 @@ from src.helpers.config_helpers import get_base_url
 
 
 @pytest.mark.usefixtures("init_driver")
-class TestHomepageAdmin:
-
-    @pytest.mark.tcid314
-    def test_post_new_site_button_is_displayed(self):
-        login = LoginPage(self.driver)
-        homepage = HomePage(self.driver)
-        navigation = NavigationBar(self.driver)
-
-        login.valid_login(admin=True)
-
-        expected_message = GenericConfigs.LOGIN_SUCCESS_MSG 
-        homepage.wait_until_success_message_is_displayed(expected_message)
-
-        navigation.wait_until_post_button_is_displayed()
+class TestPostSitePositive:
 
     @pytest.mark.tcid315
     def test_post_new_site(self):
