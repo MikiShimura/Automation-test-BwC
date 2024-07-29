@@ -80,3 +80,6 @@ class SitePostForm(SitePostFormLocators):
         self.input_site_price(price=price)
         self.uproad_site_image()
         self.click_done_button()
+
+    def invalid_alert_is_displayed(self):
+        self.sl.wait_until_element_is_visible(self.INVALID_ALERT)
