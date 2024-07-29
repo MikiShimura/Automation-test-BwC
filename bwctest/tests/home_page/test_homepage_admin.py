@@ -32,6 +32,8 @@ class TestHomepageAdmin:
 
         login.valid_login(admin=True)
 
+        number_of_site_before = len(homepage.get_all_sites())
+
         navigation.click_post_new_site_button()
         site_post.post_new_site(ages=1)
 
@@ -42,6 +44,9 @@ class TestHomepageAdmin:
         expected_url = get_base_url()
 
         assert current_url==expected_url, "Redirected to wrong page."
+
+        number_of_site_after = len(homepage.get_all_sites())
+        assert number_of_site_before + 1 == number_of_site_after, "Site is not added on homepage"
     
     @pytest.mark.tcid316
     def test_post_new_site_with_two_ages(self):
@@ -51,6 +56,8 @@ class TestHomepageAdmin:
         site_post = SitePostForm(self.driver)
 
         login.valid_login(admin=True)
+
+        number_of_site_before = len(homepage.get_all_sites())
 
         navigation.click_post_new_site_button()
         site_post.post_new_site(ages=2)
@@ -62,3 +69,6 @@ class TestHomepageAdmin:
         expected_url = get_base_url()
 
         assert current_url==expected_url, "Redirected to wrong page."
+
+        number_of_site_after = len(homepage.get_all_sites())
+        assert number_of_site_before + 1 == number_of_site_after, "Site is not added on homepage"
