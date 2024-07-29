@@ -1,6 +1,7 @@
 import pytest
 from src.pages.HomePage import HomePage
 from src.pages.NavigationBar import NavigationBar
+from src.pages.SearchSection import SearchSection
 
 
 @pytest.mark.usefixtures("init_driver")
@@ -117,4 +118,29 @@ class TestHomepageContentDisplayed:
         homepage.go_to_homepage()
 
         navigation.wait_until_post_button_is_not_displayed()
-        
+
+    @pytest.mark.tcid318
+    def test_search_result_message_is_displayed(self):
+        homepage = HomePage(self.driver)
+        search = SearchSection(self.driver)
+
+        homepage.go_to_homepage()
+
+        # Scroll down 500px so that Selenium elements can be interactable
+        self.driver.execute_script("window.scrollTo(0, 500)")
+
+        search.choose_categories_on_seach_section()
+        search.choose_ages_on_seach_section()
+        search.click_search_button()
+
+        number_of_site = len(homepage.get_all_sites())
+        if number_of_site == 0:
+            displayed_msg = homepage.wait_until_search_result_text_is_displayed()
+            expected_msg = "No result"
+
+            assert displayed_msg == expected_msg, "Search result message is wrong"
+        else:
+            displayed_msg = homepage.wait_until_search_result_text_is_displayed()
+            expected_msg = f"{number_of_site}sites found"
+
+            assert displayed_msg == expected_msg, "Search result message is wrong"

@@ -61,3 +61,6 @@ class HomePage(HomePageLocators):
     
     def get_site_ages(self, parent):
         return parent.find_element(self.SITE_AGES[0], self.SITE_AGES[1])
+    
+    def wait_until_search_result_text_is_displayed(self):
+        return self.sl.wait_and_get_text(self.SEARCH_RESULT_MSG)

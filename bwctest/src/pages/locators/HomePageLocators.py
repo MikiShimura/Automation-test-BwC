@@ -15,3 +15,5 @@ class HomePageLocators():
     SITE_TITLE = (By.CSS_SELECTOR, "h5.card-title")
     SITE_CATEGORIES = (By.CSS_SELECTOR, "p.card-text span.badge.rounded-pill")
     SITE_AGES = (By.CSS_SELECTOR, "p.card-text span.badge.bg-secondary")
+
+    SEARCH_RESULT_MSG = (By.XPATH, "/html/body/main/div[2]/div/div[3]/div[2]/p")
