@@ -23,3 +23,9 @@ class SitePostFormLocators():
     DONE_BTN = (By.XPATH, "/html/body/main/div/div/form/div[11]/button")
 
     INVALID_ALERT = (By.CSS_SELECTOR, "div.invalid-feedback")
+    INVALID_ALERT_TITLE = (By.XPATH, "/html/body/main/div/div/form/div[1]/div")
+    INVALID_ALERT_DESCRIPTION = (By.XPATH, "/html/body/main/div/div/form/div[2]/div")
+    INVALID_ALERT_LOCATION = (By.XPATH, "/html/body/main/div/div/form/div[5]/div")
+    INVALID_ALERT_LONGTITUDE = (By.XPATH, "/html/body/main/div/div/form/div[6]/div")
+    INVALID_ALERT_LATITUDE = (By.XPATH, "/html/body/main/div/div/form/div[7]/div")
+    INVALID_ALERT_PRICE = (By.XPATH, "/html/body/main/div/div/form/div[9]/div")

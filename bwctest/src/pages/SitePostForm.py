@@ -8,7 +8,7 @@ class SitePostForm(SitePostFormLocators):
 
     site_default = {"title":"test", "description":"test", "category":"Culture", "ages":2, 
                     "location":"test", "longtitude":"1.111", "latitude":"1.111", 
-                    "url":"test.com", "price":"300"}
+                    "url":"test.com", "price":"300", "uproad":True}
 
     def __init__(self, driver):
         self.driver = driver
@@ -54,10 +54,11 @@ class SitePostForm(SitePostFormLocators):
     def input_site_price(self, price=site_default["price"]):
         self.sl.wait_and_input_text(self.PRICE_FIELD, price)
 
-    def uproad_site_image(self):
-        image_path = os.getcwd() + '\\test.jpg'
-        elm = self.sl.wait_and_get_elements(self.IMG_UPROAD_BTN)[0]
-        elm.send_keys(image_path)
+    def uproad_site_image(self, uproad=True):
+        if uproad:
+            image_path = os.getcwd() + '\\test1.jpg' 
+            elm = self.sl.wait_and_get_elements(self.IMG_UPROAD_BTN)[0]
+            elm.send_keys(image_path)
 
     def click_done_button(self):
         try: 
@@ -67,8 +68,10 @@ class SitePostForm(SitePostFormLocators):
             self.sl.wait_and_click(self.DONE_BTN)
     
     def post_new_site(self, title=site_default["title"], description=site_default["description"], 
-                      category=site_default["category"], ages=site_default["ages"], location=site_default["location"], 
-                      longtitude=site_default["longtitude"], latitude=site_default["latitude"], url=site_default["url"], price=site_default["price"]):
+                      category=site_default["category"], ages=site_default["ages"], 
+                      location=site_default["location"], longtitude=site_default["longtitude"], 
+                      latitude=site_default["latitude"], url=site_default["url"], 
+                      price=site_default["price"], uproad=site_default["uproad"]):
         self.input_site_title(title=title)
         self.input_site_description(description=description)
         self.choose_site_category(category=category)
@@ -78,8 +81,24 @@ class SitePostForm(SitePostFormLocators):
         self.input_site_latitude(latitude=latitude)
         self.input_site_url(url=url)
         self.input_site_price(price=price)
-        self.uproad_site_image()
+        self.uproad_site_image(uproad=uproad)
         self.click_done_button()
+        
+    def title_invalid_alert_is_displayed(self):
+        self.sl.wait_until_element_is_visible(self.INVALID_ALERT_TITLE)
 
-    def invalid_alert_is_displayed(self):
-        self.sl.wait_until_element_is_visible(self.INVALID_ALERT)
+    def description_invalid_alert_is_displayed(self):
+        self.sl.wait_until_element_is_visible(self.INVALID_ALERT_DESCRIPTION)
+    
+    def location_invalid_alert_is_displayed(self):
+        self.sl.wait_until_element_is_visible(self.INVALID_ALERT_LOCATION)
+
+    def longtitude_invalid_alert_is_displayed(self):
+        self.sl.wait_until_element_is_visible(self.INVALID_ALERT_LONGTITUDE)
+
+    def latitude_invalid_alert_is_displayed(self):
+        self.sl.wait_until_element_is_visible(self.INVALID_ALERT_LATITUDE)
+
+    def price_invalid_alert_is_displayed(self):
+        self.sl.wait_until_element_is_visible(self.INVALID_ALERT_PRICE)
+        
