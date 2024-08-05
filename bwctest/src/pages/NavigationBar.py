@@ -15,3 +15,10 @@ class NavigationBar(NavigationBarLocators):
 
     def click_post_new_site_button(self):
         self.sl.wait_and_click(self.POST_BTN)
+
+    def wait_until_nav_bar_is_displayed(self):
+        self.sl.wait_until_element_is_visible(self.NAV_BAR)
+
+    def get_nav_element(self):
+        elements = self.sl.wait_and_get_elements(self.NAV_BAR)
+        return elements[0]

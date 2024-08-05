@@ -12,25 +12,27 @@ class TestHomepageContentDisplayed:
     @pytest.mark.tcid301
     def test_navigation_is_displayed_on_top(self):
         homepage = HomePage(self.driver)
+        navigation = NavigationBar(self.driver)
 
         homepage.go_to_homepage()
 
-        homepage.wait_until_navigation_is_displayed()
+        navigation.wait_until_nav_bar_is_displayed()
 
-        navigation = homepage.get_navigation_element()
+        navigation = navigation.get_nav_element()
         navigation_location = navigation.location
         assert navigation_location['y'] == 0, "Navigation should be displayed top"
 
     @pytest.mark.tcid302
     def test_app_image_is_displayed_under_navigation(self):
         homepage = HomePage(self.driver)
+        navigation = NavigationBar(self.driver)
 
         homepage.go_to_homepage()
 
-        homepage.wait_until_navigation_is_displayed()
+        navigation.wait_until_nav_bar_is_displayed()
         homepage.wait_until_app_image_is_displayed()
 
-        navigation = homepage.get_navigation_element()
+        navigation = navigation.get_nav_element()
         navigation_location = navigation.location
         app_image = homepage.get_app_image_element()
         app_image_location = app_image.location

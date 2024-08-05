@@ -18,13 +18,6 @@ class HomePage(HomePageLocators):
     
     def wait_until_success_message_is_displayed(self, exp_msg):
         self.sl.wait_until_element_contains_text(self.ALERT_SUCCESS_MSG, exp_msg)
-
-    def wait_until_navigation_is_displayed(self):
-        self.sl.wait_until_element_is_visible(self.NAVIGATION_SEC)
-
-    def get_navigation_element(self):
-        elements = self.sl.wait_and_get_elements(self.NAVIGATION_SEC)
-        return elements[0]
     
     def wait_until_app_image_is_displayed(self):
         self.sl.wait_until_element_is_visible(self.APP_IMG)
