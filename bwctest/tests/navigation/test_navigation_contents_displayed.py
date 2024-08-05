@@ -37,3 +37,25 @@ class TestContentDisplayed:
         assert current_url==expected_url, "Redirected to wrong page or Logout failed."
 
         navigation.wait_until_login_button_is_displayed()
+
+    @pytest.mark.tcid407
+    def test_post_new_site_button_is_not_displayed(self):
+        homepage = HomePage(self.driver)
+        navigation = NavigationBar(self.driver)
+
+        homepage.go_to_homepage()
+
+        navigation.wait_until_post_button_is_not_displayed()
+
+    @pytest.mark.tcid408
+    def test_post_new_site_button_is_displayed_for_admin(self):
+        login = LoginPage(self.driver)
+        homepage = HomePage(self.driver)
+        navigation = NavigationBar(self.driver)
+
+        login.valid_login(admin=True)
+
+        expected_message = GenericConfigs.LOGIN_SUCCESS_MSG 
+        homepage.wait_until_success_message_is_displayed(expected_message)
+
+        navigation.wait_until_post_button_is_displayed()
