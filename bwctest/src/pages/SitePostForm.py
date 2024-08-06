@@ -6,6 +6,8 @@ import time
 
 class SitePostForm(SitePostFormLocators):
 
+    endpoint = "new"
+
     site_default = {"title":"test", "description":"test", "category":"Culture", "ages":2, 
                     "location":"test", "longtitude":"1.111", "latitude":"1.111", 
                     "url":"test.com", "price":"300", "uproad":True}

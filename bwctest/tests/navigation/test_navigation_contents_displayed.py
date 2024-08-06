@@ -3,6 +3,7 @@ from src.pages.RegisterPage import RegisterPage
 from src.pages.LoginPage import LoginPage
 from src.pages.HomePage import HomePage
 from src.pages.NavigationBar import NavigationBar
+from src.pages.SitePostForm import SitePostForm
 from src.configs.generic_configs import GenericConfigs
 from src.helpers.config_helpers import get_base_url
 
@@ -98,3 +99,30 @@ class TestContentDisplayed:
         homepage.wait_until_success_message_is_displayed(expected_message)
 
         navigation.wait_until_post_button_is_displayed()
+
+    @pytest.mark.tcid409
+    def test_click_post_button(self):
+        login = LoginPage(self.driver)
+        site_post = SitePostForm(self.driver)
+        navigation = NavigationBar(self.driver)
+
+        login.valid_login(admin=True)
+        navigation.click_post_new_site_button()
+
+        current_url = self.driver.current_url
+        expected_url = get_base_url() + site_post.endpoint
+
+        assert current_url==expected_url, "Opened wrong page."
+
+    @pytest.mark.tcid410
+    def test_click_site_logo(self):
+        login = LoginPage(self.driver)
+        navigation = NavigationBar(self.driver)
+
+        login.go_to_login()
+        navigation.click_site_logo()
+
+        current_url = self.driver.current_url
+        expected_url = get_base_url()
+
+        assert current_url==expected_url, "Opened wrong page."

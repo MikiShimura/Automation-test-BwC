@@ -40,3 +40,6 @@ class NavigationBar(NavigationBarLocators):
 
     def click_register_button(self):
         self.sl.wait_and_click(self.REGISTER_BTN)
+
+    def click_site_logo(self):
+        self.sl.wait_and_click(self.SITE_LOGO)
