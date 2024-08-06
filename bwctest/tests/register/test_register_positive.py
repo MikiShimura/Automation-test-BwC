@@ -1,6 +1,7 @@
 import pytest
 from src.pages.RegisterPage import RegisterPage
 from src.pages.HomePage import HomePage
+from src.pages.NavigationBar import NavigationBar
 from src.helpers.generic_helpers import generate_random_username_email_and_password
 from src.helpers.config_helpers import get_base_url
 
@@ -11,6 +12,7 @@ class TestRegisterPositive:
     def test_resister_new_user(self):
         register = RegisterPage(self.driver)
         homepage = HomePage(self.driver)
+        navigation = NavigationBar(self.driver)
 
         register.go_to_register()
         rand_info = generate_random_username_email_and_password()
@@ -21,6 +23,8 @@ class TestRegisterPositive:
 
         expected_message = "Welcome!"
         homepage.wait_until_success_message_is_displayed(expected_message)
+
+        navigation.wait_until_logout_button_is_displayed()
 
         current_url = self.driver.current_url
         expected_url = get_base_url()

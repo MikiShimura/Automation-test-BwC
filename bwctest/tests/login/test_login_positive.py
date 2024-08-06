@@ -1,6 +1,7 @@
 import pytest
 from src.pages.LoginPage import LoginPage
 from src.pages.HomePage import HomePage
+from src.pages.NavigationBar import NavigationBar
 from src.configs.generic_configs import GenericConfigs
 from src.helpers.config_helpers import get_base_url
 
@@ -12,6 +13,7 @@ class TestLoginPositive:
     def test_login_existing_admin(self):
         login = LoginPage(self.driver)
         homepage = HomePage(self.driver)
+        navigation = NavigationBar(self.driver)
 
         login.valid_login(admin=True)
 
@@ -19,9 +21,8 @@ class TestLoginPositive:
         expected_message = GenericConfigs.LOGIN_SUCCESS_MSG 
         homepage.wait_until_success_message_is_displayed(expected_message)
 
-        # success_message = homepage.get_success_message()
-        # expected_message = "Welcome back!"
-        # assert success_message==expected_message, "Login success message is not displayed correctly."
+        # check if logout bottun is displayed
+        navigation.wait_until_logout_button_is_displayed()
 
         # check url
         current_url = self.driver.current_url
@@ -34,12 +35,16 @@ class TestLoginPositive:
     def test_login_existing_user(self):
         login = LoginPage(self.driver)
         homepage = HomePage(self.driver)
+        navigation = NavigationBar(self.driver)
 
         login.valid_login()
 
         # check expected_text
         expected_message = GenericConfigs.LOGIN_SUCCESS_MSG 
         homepage.wait_until_success_message_is_displayed(expected_message)
+
+        # check if logout bottun is displayed
+        navigation.wait_until_logout_button_is_displayed()
 
         # check url
         current_url = self.driver.current_url
