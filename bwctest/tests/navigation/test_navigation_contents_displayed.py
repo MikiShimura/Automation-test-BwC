@@ -1,4 +1,5 @@
 import pytest
+from src.pages.RegisterPage import RegisterPage
 from src.pages.LoginPage import LoginPage
 from src.pages.HomePage import HomePage
 from src.pages.NavigationBar import NavigationBar
@@ -37,6 +38,41 @@ class TestContentDisplayed:
         assert current_url==expected_url, "Redirected to wrong page or Logout failed."
 
         navigation.wait_until_login_button_is_displayed()
+        
+    @pytest.mark.tcid404
+    def test_login_and_register_button_is_displayed_for_logged_in_user(self):
+        login = LoginPage(self.driver)
+        navigation = NavigationBar(self.driver)
+
+        login.valid_login()
+
+        navigation.wait_until_login_button_is_displayed()
+        navigation.wait_until_register_button_is_displayed()
+
+    @pytest.mark.tcid405
+    def test_click_login_button(self):
+        login = LoginPage(self.driver)
+        navigation = NavigationBar(self.driver)
+
+        navigation.click_login_button()
+
+        # print(login.endpoint)
+        current_url = self.driver.current_url
+        expected_url = get_base_url() + login.endpoint
+
+        assert current_url==expected_url, "Opened wrong page."
+
+    @pytest.mark.tcid406
+    def test_click_register_button(self):
+        register = RegisterPage(self.driver)
+        navigation = NavigationBar(self.driver)
+
+        navigation.click_register_button()
+
+        current_url = self.driver.current_url
+        expected_url = get_base_url() + register.endpoint
+
+        assert current_url==expected_url, "Opened wrong page."
 
     @pytest.mark.tcid407
     def test_post_new_site_button_is_not_displayed(self):

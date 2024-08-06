@@ -31,3 +31,12 @@ class NavigationBar(NavigationBarLocators):
 
     def wait_until_login_button_is_displayed(self):
         self.sl.wait_until_element_is_visible(self.LOGIN_BTN)
+
+    def wait_until_register_button_is_displayed(self):
+        self.sl.wait_until_element_is_visible(self.REGISTER_BTN)
+
+    def click_login_button(self):
+        self.sl.wait_and_click(self.LOGIN_BTN)
+
+    def click_register_button(self):
+        self.sl.wait_and_click(self.REGISTER_BTN)
