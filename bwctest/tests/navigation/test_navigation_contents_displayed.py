@@ -41,10 +41,10 @@ class TestContentDisplayed:
         
     @pytest.mark.tcid404
     def test_login_and_register_button_is_displayed_for_logged_in_user(self):
-        login = LoginPage(self.driver)
+        homepage = HomePage(self.driver)
         navigation = NavigationBar(self.driver)
 
-        login.valid_login()
+        homepage.go_to_homepage()
 
         navigation.wait_until_login_button_is_displayed()
         navigation.wait_until_register_button_is_displayed()
@@ -52,11 +52,12 @@ class TestContentDisplayed:
     @pytest.mark.tcid405
     def test_click_login_button(self):
         login = LoginPage(self.driver)
+        homepage = HomePage(self.driver)
         navigation = NavigationBar(self.driver)
 
+        homepage.go_to_homepage()
         navigation.click_login_button()
 
-        # print(login.endpoint)
         current_url = self.driver.current_url
         expected_url = get_base_url() + login.endpoint
 
@@ -65,8 +66,10 @@ class TestContentDisplayed:
     @pytest.mark.tcid406
     def test_click_register_button(self):
         register = RegisterPage(self.driver)
+        homepage = HomePage(self.driver)
         navigation = NavigationBar(self.driver)
 
+        homepage.go_to_homepage()
         navigation.click_register_button()
 
         current_url = self.driver.current_url
