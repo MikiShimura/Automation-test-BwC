@@ -32,5 +32,26 @@ class SearchSection(SearchSectionLocators):
 
     def click_search_button(self):
         self.sl.wait_and_click(self.SEARCH_BTN)
+    
+    def wait_until_category_labels_are_displayed(self, exp_text_1, exp_text_2, exp_text_3, exp_text_4, exp_text_5):
+        self.sl.wait_until_element_contains_text(self.CATEGORY_LABEL_CULTURE, exp_text_1)
+        self.sl.wait_until_element_contains_text(self.CATEGORY_LABEL_SPORT, exp_text_2)
+        self.sl.wait_until_element_contains_text(self.CATEGORY_LABEL_ENTERTAINMENT, exp_text_3)
+        self.sl.wait_until_element_contains_text(self.CATEGORY_LABEL_NATURE, exp_text_4)
+        self.sl.wait_until_element_contains_text(self.CATEGORY_LABEL_EDUCATION, exp_text_5)
+    
+    def wait_until_age_labels_are_displayed(self, exp_text_1, exp_text_2, exp_text_3, exp_text_4, exp_text_5):
+        self.sl.wait_until_element_contains_text(self.AGES_LABEL_0_1, exp_text_1)
+        self.sl.wait_until_element_contains_text(self.AGES_LABEL_2_3, exp_text_2)
+        self.sl.wait_until_element_contains_text(self.AGES_LABEL_4_6, exp_text_3)
+        self.sl.wait_until_element_contains_text(self.AGES_LABEL_7_9, exp_text_4)
+        self.sl.wait_until_element_contains_text(self.AGES_LABEL_10, exp_text_5)
+
+    def wait_until_search_button_displayed(self, exp_text):
+        self.sl.wait_until_element_contains_text(self.SEARCH_BTN, exp_text)
+
+    def wait_until_clear_all_button_displayed(self, exp_text):
+        self.sl.wait_until_element_contains_text(self.CLEAR_ALL_BTN, exp_text)
+
 
         
