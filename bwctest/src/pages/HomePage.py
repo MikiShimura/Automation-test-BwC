@@ -44,7 +44,7 @@ class HomePage(HomePageLocators):
         return self.sl.wait_and_get_elements(self.ALL_SITE_CARDS)
 
     def get_site_image(self, parent):
-        return parent.find_element(By.CSS_SELECTOR, 'img.a')
+        return parent.find_element(self.SITE_IMG[0], self.SITE_IMG[1])
     
     def get_site_title(self, parent):
         return parent.find_element(self.SITE_TITLE[0], self.SITE_TITLE[1])
@@ -55,5 +55,21 @@ class HomePage(HomePageLocators):
     def get_site_ages(self, parent):
         return parent.find_element(self.SITE_AGES[0], self.SITE_AGES[1])
     
+    def wait_until_site_image_is_displayed(self, parent):
+        elm = parent.find_element(self.SITE_IMG[0], self.SITE_IMG[1])
+        elm.is_displayed()
+        
+    def wait_until_site_title_is_displayed(self, parent):
+        elm = parent.find_element(self.SITE_TITLE[0], self.SITE_TITLE[1])
+        elm.is_displayed()
+    
+    def wait_until_site_categories_are_displayed(self, parent):
+        elm = parent.find_element(self.SITE_CATEGORIES[0], self.SITE_CATEGORIES[1])
+        elm.is_displayed()
+    
+    def wait_until_site_ages_are_displayed(self, parent):
+        elm = parent.find_element(self.SITE_AGES[0], self.SITE_AGES[1])
+        elm.is_displayed()
+
     def wait_until_search_result_text_is_displayed(self):
         return self.sl.wait_and_get_text(self.SEARCH_RESULT_MSG)
