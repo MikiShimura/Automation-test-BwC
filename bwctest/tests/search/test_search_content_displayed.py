@@ -43,3 +43,19 @@ class TestSearchContentDisplayed:
         homepage.go_to_homepage()
         
         search.wait_until_clear_all_button_displayed("Clear all")
+
+    @pytest.mark.tcid505
+    def test_click_clear_all_button(self):
+        homepage = HomePage(self.driver)
+        search = SearchSection(self.driver)
+
+        homepage.go_to_homepage()
+
+        self.driver.execute_script("window.scrollTo(0, 500)")
+
+        search.choose_categories_on_seach_section(5)
+        search.choose_ages_on_seach_section(5)
+        search.click_clear_all_button()
+
+        assert search.categories_are_not_selected() == True, "All the category checkboxes should be unselected."
+        assert search.ages_are_not_selected() == True, "All the age checkboxes should be unselected."
