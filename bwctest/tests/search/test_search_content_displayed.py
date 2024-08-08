@@ -158,9 +158,7 @@ class TestSearchContentDisplayed:
 
         self.driver.execute_script("window.scrollTo(0, 500)")
 
-        search.choose_categories_on_seach_section(0)
-        search.choose_ages_on_seach_section(0)
-        search.click_search_button()
+        search.click_clear_all_button()
 
         number_of_searched_site = len(homepage.get_all_sites())
         assert number_of_all_site == number_of_searched_site, "Number of searched sites result should be same as all the sites"
