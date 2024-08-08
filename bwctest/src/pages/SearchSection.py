@@ -15,6 +15,8 @@ class SearchSection(SearchSectionLocators):
         
         if categories > 5:
             print("Argument of function 'choose_ages_on_seach_section' should be lower than 6")
+        if categories == 0:
+            pass
         else:
             rand_categories = random.sample(checkboxes, categories)
             for i in rand_categories: 
@@ -25,6 +27,8 @@ class SearchSection(SearchSectionLocators):
                       self.AGES_CHECKBOX_7_9, self.AGES_CHECKBOX_10]
         if ages > 5:
             print("Argument of function 'choose_ages_on_seach_section' should be lower than 6")
+        if ages == 0:
+            pass
         else:
             rand_ages = random.sample(checkboxes, ages)
             for i in rand_ages: 
