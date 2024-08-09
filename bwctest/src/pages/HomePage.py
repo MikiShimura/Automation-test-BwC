@@ -1,7 +1,6 @@
 from src.SeleniumExtended import SeleniumExtended
 from src.pages.locators.HomePageLocators import HomePageLocators
 from src.helpers.config_helpers import get_base_url
-from selenium.webdriver.common.by import By
 
 class HomePage(HomePageLocators):
 
@@ -73,3 +72,6 @@ class HomePage(HomePageLocators):
 
     def wait_until_search_result_text_is_displayed(self):
         return self.sl.wait_and_get_text(self.SEARCH_RESULT_MSG)
+    
+    def click_random_site(self):
+        self.sl.wait_and_click(self.RANDOM_SITE)

@@ -23,3 +23,4 @@ class GenericConfigs:
 
     NEW_SITE_POST_MSG = "New place is registered!"
     
+    FIRST_SITE_URL = ("https://belgrade-with-kids.onrender.com/63b40fa26588e265a5e53c28")

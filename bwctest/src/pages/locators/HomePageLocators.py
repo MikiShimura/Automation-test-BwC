@@ -1,4 +1,6 @@
 from selenium.webdriver.common.by import By
+import random
+from src.helpers.generic_helpers import get_number_of_displayed_sites_on_homepage
 
 class HomePageLocators():
     ALERT_SUCCESS_MSG = (By.XPATH, "/html/body/main/div[1]")
@@ -15,5 +17,7 @@ class HomePageLocators():
     SITE_TITLE = (By.CSS_SELECTOR, "h5.card-title")
     SITE_CATEGORIES = (By.CSS_SELECTOR, "p.card-text span.badge.rounded-pill")
     SITE_AGES = (By.CSS_SELECTOR, "p.card-text span.badge.bg-secondary")
+
+    # RANDOM_SITE = (By.XPATH, f'/html/body/main/div[2]/div/div[3]/div[2]/div[{random.randint(1, get_number_of_displayed_sites_on_homepage())}]/a/div')
 
     SEARCH_RESULT_MSG = (By.XPATH, "/html/body/main/div[2]/div/div[3]/div[2]/p")

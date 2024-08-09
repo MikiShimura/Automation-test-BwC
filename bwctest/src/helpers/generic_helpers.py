@@ -1,6 +1,9 @@
 import random
 import string
 import logging as logger
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 
 def generate_random_username_email_and_password(domain=None, email_prefix=None):
 
@@ -23,3 +26,8 @@ def generate_random_username_email_and_password(domain=None, email_prefix=None):
     rondom_info = {"username": random_username, "email": random_email, "password": random_password}
 
     return rondom_info
+
+def get_number_of_displayed_sites_on_homepage(self):
+    elements = WebDriverWait(self.driver, timeout=None).until(
+                EC.visibility_of_all_elements_located(By.CSS_SELECTOR, "div.card"))
+    return len(elements)
