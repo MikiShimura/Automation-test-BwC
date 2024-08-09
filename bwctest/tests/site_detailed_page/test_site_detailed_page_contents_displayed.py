@@ -83,3 +83,37 @@ class TestSiteDetailedPageContentDisplayed:
         self.driver.get(GenericConfigs.FIRST_SITE_URL)
 
         sdp.wait_until_map_is_displayed()
+
+    @pytest.mark.tcid711
+    def test_site_reviews_are_displayed(self):
+        sdp = SiteDetailedPage(self.driver)
+
+        self.driver.get(GenericConfigs.SITE_WITH_REVIEW_URL)
+
+        sdp.wait_until_reviews_are_displayed()
+
+    @pytest.mark.tcid712
+    def test_site_review_label_is_displayed(self):
+        sdp = SiteDetailedPage(self.driver)
+
+        self.driver.get(GenericConfigs.SITE_WITH_REVIEW_URL)
+
+        sdp.wait_until_review_label_are_displayed("Reviews")
+
+    @pytest.mark.tcid713
+    def test_site_no_reviews_label_is_displayed(self):
+        sdp = SiteDetailedPage(self.driver)
+
+        self.driver.get(GenericConfigs.FIRST_SITE_URL)
+
+        sdp.wait_until_review_label_are_displayed("No reviews")
+
+    @pytest.mark.tcid718
+    def test_contents_are_displayed_on_review(self):
+        sdp = SiteDetailedPage(self.driver)
+
+        self.driver.get(GenericConfigs.SITE_WITH_REVIEW_URL)
+
+        sdp.wait_until_star_is_displayed()
+        sdp.wait_until_comment_is_displayed()
+        sdp.wait_until_username_is_displayed()

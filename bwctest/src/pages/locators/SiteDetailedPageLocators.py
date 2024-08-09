@@ -10,3 +10,10 @@ class SiteDetailedPageLocators():
     SITE_PRICE = (By.XPATH, '/html/body/main/div[1]/div[1]/div[2]/p[3]')
     SITE_URL = (By.XPATH, '/html/body/main/div[1]/div[1]/div[2]/p[4]')
     SITE_MAP = (By.ID, 'map')
+
+    SITE_REVIEWS = (By.CSS_SELECTOR, 'div.card-body')
+    REVIEW_LABEL = (By.CSS_SELECTOR, 'h3')
+
+    STAR_ON_REVIEW = (By.CSS_SELECTOR, 'div.card-body p.starability-result')
+    COMMENT_ON_REVIEW = (By.XPATH, '/html/body/main/div[4]/div[1]/div/p[2]')
+    USERNAME_ON_REVIEW = (By.XPATH, '/html/body/main/div[4]/div[1]/div/p[3]')

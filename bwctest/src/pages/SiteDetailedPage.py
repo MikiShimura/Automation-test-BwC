@@ -36,3 +36,18 @@ class SiteDetailedPage(SiteDetailedPageLocators):
 
     def wait_until_map_is_displayed(self):
         self.sl.wait_until_element_is_visible(self.SITE_MAP)
+
+    def wait_until_reviews_are_displayed(self):
+        self.sl.wait_until_all_elements_are_visible(self.SITE_REVIEWS)
+
+    def wait_until_review_label_are_displayed(self, exp_text):
+        self.sl.wait_until_element_contains_text(self.REVIEW_LABEL, exp_text)
+
+    def wait_until_star_is_displayed(self):
+        self.sl.wait_until_element_is_visible(self.SITE_MAP)
+
+    def wait_until_comment_is_displayed(self):
+        self.sl.wait_until_element_is_visible(self.SITE_MAP)
+
+    def wait_until_username_is_displayed(self):
+        self.sl.wait_until_element_is_visible(self.SITE_MAP)
