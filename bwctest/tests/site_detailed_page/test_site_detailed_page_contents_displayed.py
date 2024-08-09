@@ -20,7 +20,7 @@ class TestSiteDetailedPageContentDisplayed:
 
         sdp.wait_until_all_the_site_info_is_displayed()
     
-    @pytest.mark.tcid711
+    @pytest.mark.tcid703
     def test_site_reviews_are_displayed(self):
         sdp = SiteDetailedPage(self.driver)
 
@@ -28,7 +28,7 @@ class TestSiteDetailedPageContentDisplayed:
 
         sdp.wait_until_reviews_are_displayed()
 
-    @pytest.mark.tcid712
+    @pytest.mark.tcid704
     def test_site_review_label_is_displayed(self):
         sdp = SiteDetailedPage(self.driver)
 
@@ -36,7 +36,7 @@ class TestSiteDetailedPageContentDisplayed:
 
         sdp.wait_until_review_label_are_displayed("Reviews")
 
-    @pytest.mark.tcid713
+    @pytest.mark.tcid705
     def test_site_no_reviews_label_is_displayed(self):
         sdp = SiteDetailedPage(self.driver)
 
@@ -44,7 +44,7 @@ class TestSiteDetailedPageContentDisplayed:
 
         sdp.wait_until_review_label_are_displayed("No reviews")
 
-    @pytest.mark.tcid718
+    @pytest.mark.tcid706
     def test_contents_are_displayed_on_review(self):
         sdp = SiteDetailedPage(self.driver)
 
