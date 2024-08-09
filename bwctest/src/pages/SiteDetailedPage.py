@@ -37,6 +37,17 @@ class SiteDetailedPage(SiteDetailedPageLocators):
     def wait_until_map_is_displayed(self):
         self.sl.wait_until_element_is_visible(self.SITE_MAP)
 
+    def wait_until_all_the_site_info_is_displayed(self):
+        self.wait_until_title_is_displayed()
+        self.wait_until_image_is_displayed()
+        self.wait_until_address_is_displayed()
+        self.wait_until_description_is_displayed()
+        self.wait_until_category_is_displayed()
+        self.wait_until_ages_are_displayed()
+        self.wait_until_price_is_displayed()
+        self.wait_until_url_is_displayed()
+        self.wait_until_map_is_displayed()
+
     def wait_until_reviews_are_displayed(self):
         self.sl.wait_until_all_elements_are_visible(self.SITE_REVIEWS)
 
