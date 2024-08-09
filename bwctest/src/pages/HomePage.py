@@ -26,10 +26,10 @@ class HomePage(HomePageLocators):
         return elements[0]
     
     def wait_until_map_is_displayed(self):
-        self.sl.wait_until_element_is_visible(self.MAP_SEC)
+        self.sl.wait_until_element_is_visible(self.MAIN_MAP)
 
     def get_map_element(self):
-        elements = self.sl.wait_and_get_elements(self.MAP_SEC)
+        elements = self.sl.wait_and_get_elements(self.MAIN_MAP)
         return elements[0]
 
     def wait_until_sites_section_is_displayed(self):

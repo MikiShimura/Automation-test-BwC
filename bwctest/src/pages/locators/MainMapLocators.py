@@ -1,7 +1,6 @@
 from selenium.webdriver.common.by import By
 
 class MainMapLocators():
-    MAIN_MAP = (By.CSS_SELECTOR, 'canvas.mapboxgl-canvas')
     PINS_ON_MAP = (By.CSS_SELECTOR, 'div.mapboxgl-marker')
     POPUP_ON_MAP = (By.CSS_SELECTOR, 'div.mapboxgl-popup-content')
     LINK_ON_POPUP = (By.CSS_SELECTOR, 'div.mapboxgl-popup-content a')
