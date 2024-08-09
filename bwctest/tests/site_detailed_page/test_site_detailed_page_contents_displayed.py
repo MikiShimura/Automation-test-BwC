@@ -11,6 +11,7 @@ class TestSiteDetailedPageContentDisplayed:
 
     @pytest.mark.tcid701
     def test_site_title_is_displayed(self):
+        homepage = HomePage(self.driver)
         sdp = SiteDetailedPage(self.driver)
 
         self.driver.get(GenericConfigs.FIRST_SITE_URL)

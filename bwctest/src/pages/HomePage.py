@@ -1,6 +1,8 @@
 from src.SeleniumExtended import SeleniumExtended
 from src.pages.locators.HomePageLocators import HomePageLocators
 from src.helpers.config_helpers import get_base_url
+from selenium.webdriver.common.by import By
+import random
 
 class HomePage(HomePageLocators):
 
@@ -74,4 +76,5 @@ class HomePage(HomePageLocators):
         return self.sl.wait_and_get_text(self.SEARCH_RESULT_MSG)
     
     def click_random_site(self):
-        self.sl.wait_and_click(self.RANDOM_SITE)
+        number = len(self.get_all_sites())
+        self.driver.find_element(By.XPATH, f'/html/body/main/div[2]/div/div[3]/div[2]/div[{random.randint(1, number)}]/a/div').click()
