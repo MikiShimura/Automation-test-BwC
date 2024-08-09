@@ -26,3 +26,59 @@ class TestSiteDetailedPageContentDisplayed:
         self.driver.get(GenericConfigs.FIRST_SITE_URL)
 
         sdp.wait_until_image_is_displayed()
+    
+    @pytest.mark.tcid704
+    def test_site_address_is_displayed(self):
+        sdp = SiteDetailedPage(self.driver)
+
+        self.driver.get(GenericConfigs.FIRST_SITE_URL)
+
+        sdp.wait_until_address_is_displayed()
+
+    @pytest.mark.tcid705
+    def test_site_description_is_displayed(self):
+        sdp = SiteDetailedPage(self.driver)
+
+        self.driver.get(GenericConfigs.FIRST_SITE_URL)
+
+        sdp.wait_until_description_is_displayed()
+
+    @pytest.mark.tcid706
+    def test_site_category_is_displayed(self):
+        sdp = SiteDetailedPage(self.driver)
+
+        self.driver.get(GenericConfigs.FIRST_SITE_URL)
+
+        sdp.wait_until_category_is_displayed()
+
+    @pytest.mark.tcid707
+    def test_site_ages_are_displayed(self):
+        sdp = SiteDetailedPage(self.driver)
+
+        self.driver.get(GenericConfigs.FIRST_SITE_URL)
+
+        sdp.wait_until_ages_are_displayed()
+
+    @pytest.mark.tcid708
+    def test_site_price_is_displayed(self):
+        sdp = SiteDetailedPage(self.driver)
+
+        self.driver.get(GenericConfigs.FIRST_SITE_URL)
+
+        sdp.wait_until_price_is_displayed()
+
+    @pytest.mark.tcid709
+    def test_site_url_is_displayed(self):
+        sdp = SiteDetailedPage(self.driver)
+
+        self.driver.get(GenericConfigs.FIRST_SITE_URL)
+
+        sdp.wait_until_url_is_displayed()
+
+    @pytest.mark.tcid710
+    def test_site_map_is_displayed(self):
+        sdp = SiteDetailedPage(self.driver)
+
+        self.driver.get(GenericConfigs.FIRST_SITE_URL)
+
+        sdp.wait_until_map_is_displayed()
