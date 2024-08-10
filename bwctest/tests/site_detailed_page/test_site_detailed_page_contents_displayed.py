@@ -1,4 +1,5 @@
 import pytest
+from src.pages.LoginPage import LoginPage
 from src.pages.HomePage import HomePage
 from src.pages.SearchSection import SearchSection
 from src.pages.MainMap import MainMap
@@ -53,3 +54,21 @@ class TestSiteDetailedPageContentDisplayed:
         sdp.wait_until_star_is_displayed()
         sdp.wait_until_comment_is_displayed()
         sdp.wait_until_username_is_displayed()
+
+    @pytest.mark.tcid707
+    def test_post_review_button_is_not_displayed(self):
+        sdp = SiteDetailedPage(self.driver)
+
+        self.driver.get(GenericConfigs.FIRST_SITE_URL)
+
+        sdp.wait_until_post_review_button_is_not_displayed()
+
+    @pytest.mark.tcid708
+    def test_post_review_button_is_displayed_for_logined_user(self):
+        login = LoginPage(self.driver)
+        sdp = SiteDetailedPage(self.driver)
+
+        login.valid_login()
+        self.driver.get(GenericConfigs.FIRST_SITE_URL)
+
+        sdp.wait_until_post_review_button_is_displayed()

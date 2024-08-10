@@ -62,3 +62,9 @@ class SiteDetailedPage(SiteDetailedPageLocators):
 
     def wait_until_username_is_displayed(self):
         self.sl.wait_until_element_is_visible(self.SITE_MAP)
+
+    def wait_until_post_review_button_is_not_displayed(self):
+        self.sl.wait_until_element_is_invisible(self.POST_REVIEW_BTN)
+
+    def wait_until_post_review_button_is_displayed(self):
+        self.sl.wait_until_element_is_visible(self.POST_REVIEW_BTN)
