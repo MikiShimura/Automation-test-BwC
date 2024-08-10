@@ -3,6 +3,7 @@ from src.pages.LoginPage import LoginPage
 from src.pages.HomePage import HomePage
 from src.pages.NavigationBar import NavigationBar
 from src.pages.SitePostForm import SitePostForm
+from src.pages.Alert import Alert
 from src.configs.generic_configs import GenericConfigs
 from src.helpers.config_helpers import get_base_url
 
@@ -16,6 +17,7 @@ class TestPostSitePositive:
         homepage = HomePage(self.driver)
         navigation = NavigationBar(self.driver)
         site_post = SitePostForm(self.driver)
+        alert = Alert(self.driver)
 
         login.valid_login(admin=True)
 
@@ -25,7 +27,7 @@ class TestPostSitePositive:
         site_post.post_new_site(ages=1)
 
         expected_message = GenericConfigs.NEW_SITE_POST_MSG
-        homepage.wait_until_success_message_is_displayed(expected_message)
+        alert.wait_until_success_message_is_displayed(expected_message)
 
         current_url = self.driver.current_url
         expected_url = get_base_url()
@@ -41,6 +43,7 @@ class TestPostSitePositive:
         homepage = HomePage(self.driver)
         navigation = NavigationBar(self.driver)
         site_post = SitePostForm(self.driver)
+        alert = Alert(self.driver)
 
         login.valid_login(admin=True)
 
@@ -50,7 +53,7 @@ class TestPostSitePositive:
         site_post.post_new_site(ages=2)
 
         expected_message = GenericConfigs.NEW_SITE_POST_MSG
-        homepage.wait_until_success_message_is_displayed(expected_message)
+        alert.wait_until_success_message_is_displayed(expected_message)
 
         current_url = self.driver.current_url
         expected_url = get_base_url()
@@ -66,6 +69,7 @@ class TestPostSitePositive:
         homepage = HomePage(self.driver)
         navigation = NavigationBar(self.driver)
         site_post = SitePostForm(self.driver)
+        alert = Alert(self.driver)
 
         login.valid_login(admin=True)
 
@@ -75,7 +79,7 @@ class TestPostSitePositive:
         site_post.post_new_site(ages=2, url="")
 
         expected_message = GenericConfigs.NEW_SITE_POST_MSG
-        homepage.wait_until_success_message_is_displayed(expected_message)
+        alert.wait_until_success_message_is_displayed(expected_message)
 
         current_url = self.driver.current_url
         expected_url = get_base_url()
@@ -91,6 +95,7 @@ class TestPostSitePositive:
         homepage = HomePage(self.driver)
         navigation = NavigationBar(self.driver)
         site_post = SitePostForm(self.driver)
+        alert = Alert(self.driver)
 
         login.valid_login(admin=True)
 
@@ -100,7 +105,7 @@ class TestPostSitePositive:
         site_post.post_new_site(ages=2, category="")
 
         expected_message = GenericConfigs.NEW_SITE_POST_MSG
-        homepage.wait_until_success_message_is_displayed(expected_message)
+        alert.wait_until_success_message_is_displayed(expected_message)
 
         current_url = self.driver.current_url
         expected_url = get_base_url()
@@ -116,6 +121,7 @@ class TestPostSitePositive:
         homepage = HomePage(self.driver)
         navigation = NavigationBar(self.driver)
         site_post = SitePostForm(self.driver)
+        alert = Alert(self.driver)
 
         login.valid_login(admin=True)
 
@@ -125,7 +131,7 @@ class TestPostSitePositive:
         site_post.post_new_site(ages=0)
 
         expected_message = GenericConfigs.NEW_SITE_POST_MSG
-        homepage.wait_until_success_message_is_displayed(expected_message)
+        alert.wait_until_success_message_is_displayed(expected_message)
 
         current_url = self.driver.current_url
         expected_url = get_base_url()

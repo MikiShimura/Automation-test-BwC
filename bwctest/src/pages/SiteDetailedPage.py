@@ -103,3 +103,6 @@ class SiteDetailedPage(SiteDetailedPageLocators):
         self.choose_star()
         self.input_comment()
         self.click_send_review_button()
+
+    def get_all_reviews(self):
+        return self.sl.wait_and_get_elements(self.SITE_REVIEWS)

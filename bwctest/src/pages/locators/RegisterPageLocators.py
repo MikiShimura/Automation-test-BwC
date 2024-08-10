@@ -8,5 +8,3 @@ class RegisterPageLocators():
     REGISTER_PASSWORD_LABEL = (By.XPATH, "/html/body/main/div/div/div/div/div/form/div[3]/label")
     REGISTER_PASSWORD = (By.ID, "password")
     REGISTER_BTN = (By.XPATH, "/html/body/main/div/div/div/div/div/form/div[4]/button")
-
-    ALERT_ERR_MSG = (By.XPATH, "/html/body/main/div[1]")

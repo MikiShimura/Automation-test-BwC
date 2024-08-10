@@ -3,8 +3,6 @@ import random
 from src.helpers.generic_helpers import get_number_of_displayed_sites_on_homepage
 
 class HomePageLocators():
-    ALERT_SUCCESS_MSG = (By.XPATH, "/html/body/main/div[1]")
-
     NAVIGATION_SEC = (By.CSS_SELECTOR, "nav")
     APP_IMG = (By.XPATH, "/html/body/main/div[1]")
     SEARCH_SEC = (By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div")

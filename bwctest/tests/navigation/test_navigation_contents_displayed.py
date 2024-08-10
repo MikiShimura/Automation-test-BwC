@@ -4,6 +4,7 @@ from src.pages.LoginPage import LoginPage
 from src.pages.HomePage import HomePage
 from src.pages.NavigationBar import NavigationBar
 from src.pages.SitePostForm import SitePostForm
+from src.pages.Alert import Alert
 from src.configs.generic_configs import GenericConfigs
 from src.helpers.config_helpers import get_base_url
 
@@ -25,13 +26,14 @@ class TestContentDisplayed:
         login = LoginPage(self.driver)
         homepage = HomePage(self.driver)
         navigation = NavigationBar(self.driver)
+        alert = Alert(self.driver)
 
         login.valid_login()
 
         navigation.click_logout_button()
 
         expected_message = GenericConfigs.LOGOUT_SUCCESS_MSG 
-        homepage.wait_until_success_message_is_displayed(expected_message)
+        alert.wait_until_success_message_is_displayed(expected_message)
 
         current_url = self.driver.current_url
         expected_url = get_base_url()
@@ -92,11 +94,12 @@ class TestContentDisplayed:
         login = LoginPage(self.driver)
         homepage = HomePage(self.driver)
         navigation = NavigationBar(self.driver)
+        alert = Alert(self.driver)
 
         login.valid_login(admin=True)
 
         expected_message = GenericConfigs.LOGIN_SUCCESS_MSG 
-        homepage.wait_until_success_message_is_displayed(expected_message)
+        alert.wait_until_success_message_is_displayed(expected_message)
 
         navigation.wait_until_post_button_is_displayed()
 

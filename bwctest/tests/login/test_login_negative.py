@@ -1,6 +1,7 @@
 import pytest
 from src.pages.LoginPage import LoginPage
 from src.pages.HomePage import HomePage
+from src.pages.Alert import Alert
 from src.configs.generic_configs import GenericConfigs
 
 
@@ -10,6 +11,7 @@ class TestLoginNegative:
     @pytest.mark.tcid104
     def test_login_invaild_admin_username(self):
         login = LoginPage(self.driver)
+        alert = Alert(self.driver)
 
         login.go_to_login()
         login.input_login_username("John")
@@ -17,11 +19,12 @@ class TestLoginNegative:
         login.click_login_button()
 
         expected_error = GenericConfigs.LOGIN_INVAILD_CREDENCIAL_ERR_MSG
-        login.wait_until_error_message_is_displayed(expected_error)
+        alert.wait_until_error_message_is_displayed(expected_error)
 
     @pytest.mark.tcid105
     def test_login_invaild_admin_password(self):
         login = LoginPage(self.driver)
+        alert = Alert(self.driver)
 
         login.go_to_login()
         login.input_login_username(GenericConfigs.ADMIN["username"])
@@ -29,11 +32,12 @@ class TestLoginNegative:
         login.click_login_button()
 
         expected_error = GenericConfigs.LOGIN_INVAILD_CREDENCIAL_ERR_MSG
-        login.wait_until_error_message_is_displayed(expected_error)
+        alert.wait_until_error_message_is_displayed(expected_error)
 
     @pytest.mark.tcid107
     def test_login_invaild_username(self):
         login = LoginPage(self.driver)
+        alert = Alert(self.driver)
 
         login.go_to_login()
         login.input_login_username("John")
@@ -41,11 +45,12 @@ class TestLoginNegative:
         login.click_login_button()
 
         expected_error = GenericConfigs.LOGIN_INVAILD_CREDENCIAL_ERR_MSG
-        login.wait_until_error_message_is_displayed(expected_error)
+        alert.wait_until_error_message_is_displayed(expected_error)
 
     @pytest.mark.tcid108
     def test_login_invaild_password(self):
         login = LoginPage(self.driver)
+        alert = Alert(self.driver)
 
         login.go_to_login()
         login.input_login_username(GenericConfigs.VALID_USER["username"])
@@ -53,5 +58,5 @@ class TestLoginNegative:
         login.click_login_button()
 
         expected_error = GenericConfigs.LOGIN_INVAILD_CREDENCIAL_ERR_MSG
-        login.wait_until_error_message_is_displayed(expected_error)
+        alert.wait_until_error_message_is_displayed(expected_error)
     
