@@ -3,6 +3,8 @@ from src.pages.locators.HomePageLocators import HomePageLocators
 from src.helpers.config_helpers import get_base_url
 from selenium.webdriver.common.by import By
 import random
+from selenium.common.exceptions import ElementNotInteractableException
+import time
 
 class HomePage(HomePageLocators):
 
@@ -74,4 +76,10 @@ class HomePage(HomePageLocators):
     
     def click_random_site(self):
         number = len(self.get_all_sites())
-        self.driver.find_element(By.XPATH, f'/html/body/main/div[2]/div/div[3]/div[2]/div[{random.randint(1, number)}]/a/div').click()
+        self.driver.execute_script("window.scrollTo(0, 500);")
+
+        try:
+            self.driver.find_element(By.XPATH, f'/html/body/main/div[2]/div/div[3]/div[2]/div[{random.randint(1, number)}]/a/div').click()
+        except ElementNotInteractableException:
+            time.sleep(2)
+            self.driver.find_element(By.XPATH, f'/html/body/main/div[2]/div/div[3]/div[2]/div[{random.randint(1, number)}]/a/div').click()

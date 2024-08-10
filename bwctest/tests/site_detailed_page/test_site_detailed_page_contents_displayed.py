@@ -11,13 +11,12 @@ from src.configs.generic_configs import GenericConfigs
 class TestSiteDetailedPageContentDisplayed:
 
     @pytest.mark.tcid701
-    def test_site_title_is_displayed(self):
+    def test_site_info_is_displayed(self):
         homepage = HomePage(self.driver)
         sdp = SiteDetailedPage(self.driver)
 
-        self.driver.get(GenericConfigs.FIRST_SITE_URL)
-        # homepage.go_to_homepage()
-        # homepage.click_random_site()
+        homepage.go_to_homepage()
+        homepage.click_random_site()
 
         sdp.wait_until_all_the_site_info_is_displayed()
     
