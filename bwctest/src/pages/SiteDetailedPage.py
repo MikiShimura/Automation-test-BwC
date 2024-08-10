@@ -73,7 +73,7 @@ class SiteDetailedPage(SiteDetailedPageLocators):
 
     def click_post_review_button(self):
         self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        
+
         try:
             self.sl.wait_and_click(self.POST_REVIEW_BTN)
         except ElementNotInteractableException:
@@ -100,11 +100,14 @@ class SiteDetailedPage(SiteDetailedPageLocators):
     def click_send_review_button(self):
         self.sl.wait_and_click(self.SEND_REVIEW_BTN)
 
-    def post_review(self):
+    def post_review(self, comment="TestComment"):
         self.click_post_review_button()
         self.choose_star()
-        self.input_comment()
+        self.input_comment(comment=comment)
         self.click_send_review_button()
 
     def get_all_reviews(self):
         return self.sl.wait_and_get_elements(self.SITE_REVIEWS)
+    
+    def comment_invalid_alert_is_displayed(self):
+        self.sl.wait_until_element_is_visible(self.INVARID_ALERT_COMMENT)

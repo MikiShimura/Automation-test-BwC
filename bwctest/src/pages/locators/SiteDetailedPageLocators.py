@@ -26,3 +26,5 @@ class SiteDetailedPageLocators():
     STAR_ON_REVIEW = (By.CSS_SELECTOR, 'div.card-body p.starability-result')
     COMMENT_ON_REVIEW = (By.XPATH, '/html/body/main/div[4]/div[1]/div/p[2]')
     USERNAME_ON_REVIEW = (By.XPATH, '/html/body/main/div[4]/div[1]/div/p[3]')
+
+    INVARID_ALERT_COMMENT = (By.XPATH, '/html/body/main/div[2]/div/div[2]/div/div/div/div/div[2]/form/div[2]/div')
