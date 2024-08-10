@@ -74,24 +74,17 @@ class HomePage(HomePageLocators):
     def wait_until_search_result_text_is_displayed(self):
         return self.sl.wait_and_get_text(self.SEARCH_RESULT_MSG)
     
+    def click_site(self, number):
+        try:
+            self.driver.find_element(By.XPATH, f'/html/body/main/div[2]/div/div[3]/div[2]/div[{number}]/a/div').click()
+        except ElementNotInteractableException:
+            time.sleep(2)
+            self.driver.find_element(By.XPATH, f'/html/body/main/div[2]/div/div[3]/div[2]/div[{number}]/a/div').click()
+    
     def click_random_site(self):
         number = len(self.get_all_sites())
         random_number = random.randint(1, number)
-        self.driver.execute_script("window.scrollTo(0, 500);")
 
-        try:
-            self.driver.find_element(By.XPATH, f'/html/body/main/div[2]/div/div[3]/div[2]/div[{random_number}]/a/div').click()
-        except ElementNotInteractableException:
-            time.sleep(2)
-            self.driver.find_element(By.XPATH, f'/html/body/main/div[2]/div/div[3]/div[2]/div[{random_number}]/a/div').click()
+        self.click_site(random_number)
 
         return random_number
-    
-    def click_site(self, number):
-        self.driver.execute_script("window.scrollTo(0, 500);")
-
-        try:
-            self.driver.find_element(By.XPATH, f'/html/body/main/div[2]/div/div[3]/div[2]/div[{number}]/a/div').click()
-        except ElementNotInteractableException:
-            time.sleep(2)
-            self.driver.find_element(By.XPATH, f'/html/body/main/div[2]/div/div[3]/div[2]/div[{number}]/a/div').click()
