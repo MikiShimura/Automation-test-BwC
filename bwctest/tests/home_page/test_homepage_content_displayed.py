@@ -3,6 +3,7 @@ from src.pages.LoginPage import LoginPage
 from src.pages.HomePage import HomePage
 from src.pages.NavigationBar import NavigationBar
 from src.pages.SearchSection import SearchSection
+from src.pages.SiteDetailedPage import SiteDetailedPage
 from src.configs.generic_configs import GenericConfigs
 
 
@@ -113,6 +114,22 @@ class TestHomepageContentDisplayed:
         all_sites = homepage.get_all_sites()
         for n in range(len(all_sites)):
             homepage.wait_until_site_ages_are_displayed(all_sites[n])
+
+    @pytest.mark.tcid312
+    def test_click_any_site(self):
+        homepage = HomePage(self.driver)
+        sdp = SiteDetailedPage(self.driver)
+        
+        homepage.go_to_homepage()
+        number_of_chosen_site = homepage.click_random_site()
+
+        site_title_adp = sdp.get_site_title_text()
+
+        homepage.go_to_homepage()
+        all_sites = homepage.get_all_sites()
+        site_title_homepage = homepage.get_site_title(all_sites[number_of_chosen_site-1])
+
+        assert site_title_adp == site_title_homepage, "Site on homepage link to different site detailed page"
 
     @pytest.mark.tcid318
     def test_search_result_message_is_displayed(self):

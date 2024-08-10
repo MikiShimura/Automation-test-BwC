@@ -47,7 +47,7 @@ class HomePage(HomePageLocators):
         return parent.find_element(self.SITE_IMG[0], self.SITE_IMG[1])
     
     def get_site_title(self, parent):
-        return parent.find_element(self.SITE_TITLE[0], self.SITE_TITLE[1])
+        return parent.find_element(self.SITE_TITLE[0], self.SITE_TITLE[1]).text
     
     def get_site_categories(self, parent):
         return parent.find_element(self.SITE_CATEGORIES[0], self.SITE_CATEGORIES[1])
@@ -76,10 +76,13 @@ class HomePage(HomePageLocators):
     
     def click_random_site(self):
         number = len(self.get_all_sites())
+        random_number = random.randint(1, number)
         self.driver.execute_script("window.scrollTo(0, 500);")
 
         try:
-            self.driver.find_element(By.XPATH, f'/html/body/main/div[2]/div/div[3]/div[2]/div[{random.randint(1, number)}]/a/div').click()
+            self.driver.find_element(By.XPATH, f'/html/body/main/div[2]/div/div[3]/div[2]/div[{random_number}]/a/div').click()
         except ElementNotInteractableException:
             time.sleep(2)
-            self.driver.find_element(By.XPATH, f'/html/body/main/div[2]/div/div[3]/div[2]/div[{random.randint(1, number)}]/a/div').click()
+            self.driver.find_element(By.XPATH, f'/html/body/main/div[2]/div/div[3]/div[2]/div[{random_number}]/a/div').click()
+
+        return random_number
