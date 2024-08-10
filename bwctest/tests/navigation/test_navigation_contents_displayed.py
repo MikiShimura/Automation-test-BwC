@@ -11,6 +11,32 @@ from src.helpers.config_helpers import get_base_url
 
 @pytest.mark.usefixtures("init_driver")
 class TestContentDisplayed:
+    @pytest.mark.tcid401
+    def test_navigation_is_displayed_on_all_the_pages(self):
+        register = RegisterPage(self.driver)
+        login = LoginPage(self.driver)
+        homepage = HomePage(self.driver)
+        navigation = NavigationBar(self.driver)
+        site_post = SitePostForm(self.driver)
+
+        # login
+        login.go_to_login()
+        navigation.wait_until_nav_bar_is_displayed()
+
+        # register
+        register.go_to_register()
+        navigation.wait_until_nav_bar_is_displayed()
+
+        # homepage
+        homepage.go_to_homepage()
+        navigation.wait_until_nav_bar_is_displayed()
+
+        # sdp
+        site_numbers = range(1, len(homepage.get_all_sites())+1)
+        for n in site_numbers:
+            homepage.click_site(n)
+            navigation.wait_until_nav_bar_is_displayed()
+            homepage.go_to_homepage()
 
     @pytest.mark.tcid402
     def test_logout_button_is_displayed_for_logged_in_user(self):
