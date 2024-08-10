@@ -2,8 +2,6 @@ import pytest
 from src.pages.LoginPage import LoginPage
 from src.pages.SiteDetailedPage import SiteDetailedPage
 from src.configs.generic_configs import GenericConfigs
-import time
-
 
 @pytest.mark.usefixtures("init_driver")
 class TestPostReviewsPositive:
