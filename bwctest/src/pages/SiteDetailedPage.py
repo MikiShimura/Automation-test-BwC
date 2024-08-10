@@ -1,5 +1,7 @@
 from src.SeleniumExtended import SeleniumExtended
 from src.pages.locators.SiteDetailedPageLocators import SiteDetailedPageLocators
+from selenium.common.exceptions import ElementNotInteractableException
+import time
 
 class SiteDetailedPage(SiteDetailedPageLocators):
 
@@ -68,3 +70,36 @@ class SiteDetailedPage(SiteDetailedPageLocators):
 
     def wait_until_post_review_button_is_displayed(self):
         self.sl.wait_until_element_is_visible(self.POST_REVIEW_BTN)
+
+    def click_post_review_button(self):
+        try:
+            self.sl.wait_and_click(self.POST_REVIEW_BTN)
+        except ElementNotInteractableException:
+            time.sleep(2)
+            self.sl.wait_and_click(self.POST_REVIEW_BTN)
+
+    def choose_star(self, rating=5):
+        if rating == 1:
+            self.sl.wait_and_click(self.RATING_STAR_1)
+        elif rating == 2:
+            self.sl.wait_and_click(self.RATING_STAR_2)
+        elif rating == 3:
+            self.sl.wait_and_click(self.RATING_STAR_3)
+        elif rating == 4:
+            self.sl.wait_and_click(self.RATING_STAR_4)
+        elif rating == 5:
+            self.sl.wait_and_click(self.RATING_STAR_5)
+        else:
+            print("Choose stars from 1 to 5")
+
+    def input_comment(self, comment="TestComment"):
+        self.sl.wait_and_input_text(self.COMMENT_FIELD, comment)
+
+    def click_send_review_button(self):
+        self.sl.wait_and_click(self.SEND_REVIEW_BTN)
+
+    def post_review(self):
+        self.click_post_review_button()
+        self.choose_star()
+        self.input_comment()
+        self.click_send_review_button()
