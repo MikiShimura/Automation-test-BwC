@@ -23,7 +23,7 @@ class GenericConfigs:
 
     NEW_SITE_POST_MSG = "New place is registered!"
     
-    FIRST_SITE_URL = ("https://belgrade-with-kids.onrender.com/63b40fa26588e265a5e53c28")
+    SITE_WITHOUT_REVIEW_URL = ("https://belgrade-with-kids.onrender.com/63b55ca691ea338d5a441609")
     SITE_WITH_REVIEW_URL = ("https://belgrade-with-kids.onrender.com/63b41e48ed3831de2edd565f")
 
     NEW_REVIEW_POST_MSG = "The review is posted!"

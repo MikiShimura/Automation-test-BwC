@@ -40,7 +40,7 @@ class TestSiteDetailedPageContentDisplayed:
     def test_site_no_reviews_label_is_displayed(self):
         sdp = SiteDetailedPage(self.driver)
 
-        self.driver.get(GenericConfigs.FIRST_SITE_URL)
+        self.driver.get(GenericConfigs.SITE_WITHOUT_REVIEW_URL)
 
         sdp.wait_until_review_label_are_displayed("No reviews")
 
@@ -56,18 +56,22 @@ class TestSiteDetailedPageContentDisplayed:
 
     @pytest.mark.tcid707
     def test_post_review_button_is_not_displayed(self):
+        homepage = HomePage(self.driver)
         sdp = SiteDetailedPage(self.driver)
 
-        self.driver.get(GenericConfigs.FIRST_SITE_URL)
+        homepage.go_to_homepage()
+        homepage.click_random_site()
 
         sdp.wait_until_post_review_button_is_not_displayed()
 
     @pytest.mark.tcid708
-    def test_post_review_button_is_displayed_for_logined_user(self):
+    def test_post_review_button_is_displayed_for_registered_user(self):
+        homepage = HomePage(self.driver)
         login = LoginPage(self.driver)
         sdp = SiteDetailedPage(self.driver)
 
         login.valid_login()
-        self.driver.get(GenericConfigs.FIRST_SITE_URL)
+        homepage.go_to_homepage()
+        homepage.click_random_site()
 
         sdp.wait_until_post_review_button_is_displayed()

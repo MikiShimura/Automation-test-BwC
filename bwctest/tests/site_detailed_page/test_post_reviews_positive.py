@@ -14,7 +14,7 @@ class TestPostReviewsPositive:
         alert = Alert(self.driver)
 
         login.valid_login()
-        self.driver.get(GenericConfigs.FIRST_SITE_URL)
+        self.driver.get(GenericConfigs.SITE_WITH_REVIEW_URL)
 
         self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
