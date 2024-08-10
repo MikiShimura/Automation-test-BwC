@@ -16,8 +16,6 @@ class TestPostReviewsPositive:
         login.valid_login()
         self.driver.get(GenericConfigs.SITE_WITH_REVIEW_URL)
 
-        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-
         number_of_reviews_before = len(sdp.get_all_reviews())
         sdp.post_review()
 

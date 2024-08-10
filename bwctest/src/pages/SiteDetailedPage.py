@@ -72,6 +72,8 @@ class SiteDetailedPage(SiteDetailedPageLocators):
         self.sl.wait_until_element_is_visible(self.POST_REVIEW_BTN)
 
     def click_post_review_button(self):
+        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        
         try:
             self.sl.wait_and_click(self.POST_REVIEW_BTN)
         except ElementNotInteractableException:
