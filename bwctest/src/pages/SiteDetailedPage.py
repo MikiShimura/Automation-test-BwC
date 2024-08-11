@@ -94,13 +94,13 @@ class SiteDetailedPage(SiteDetailedPageLocators):
         else:
             print("Choose stars from 1 to 5")
 
-    def input_comment(self, comment="TestComment"):
+    def input_comment(self, comment):
         self.sl.wait_and_input_text(self.COMMENT_FIELD, comment)
 
     def click_post_review_button(self):
         self.sl.wait_and_click(self.POST_REVIEW_BTN)
 
-    def post_review(self, comment="TestComment"):
+    def post_new_review(self, comment="TestComment"):
         self.click_open_review_form_button()
         self.choose_star()
         self.input_comment(comment=comment)

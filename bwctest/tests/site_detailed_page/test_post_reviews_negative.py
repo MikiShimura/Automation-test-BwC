@@ -17,7 +17,7 @@ class TestPostReviewsNegative:
         self.driver.get(GenericConfigs.SITE_WITH_REVIEW_URL)
 
         number_of_reviews_before = len(sdp.get_all_reviews())
-        sdp.post_review(comment="")
+        sdp.post_new_review(comment="")
 
         sdp.comment_invalid_alert_is_displayed()
 

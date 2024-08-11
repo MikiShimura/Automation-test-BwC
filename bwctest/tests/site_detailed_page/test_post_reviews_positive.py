@@ -17,7 +17,7 @@ class TestPostReviewsPositive:
         self.driver.get(GenericConfigs.SITE_WITH_REVIEW_URL)
 
         number_of_reviews_before = len(sdp.get_all_reviews())
-        sdp.post_review()
+        sdp.post_new_review()
 
         expected_message = GenericConfigs.NEW_REVIEW_POST_MSG
         alert.wait_until_success_message_is_displayed(expected_message)
