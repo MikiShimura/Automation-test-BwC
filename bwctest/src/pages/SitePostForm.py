@@ -3,6 +3,7 @@ from src.pages.locators.SitePostFormLocators import SitePostFormLocators
 import os
 from selenium.common.exceptions import ElementNotInteractableException
 import time
+from src.helpers.config_helpers import get_base_url
 
 class SitePostForm(SitePostFormLocators):
 
@@ -15,6 +16,11 @@ class SitePostForm(SitePostFormLocators):
     def __init__(self, driver):
         self.driver = driver
         self.sl = SeleniumExtended(self.driver)
+
+    def go_to_form(self):
+        base_url = get_base_url()
+        form_url = base_url + self.endpoint
+        self.driver.get(form_url)
 
     def input_site_title(self, title=site_default["title"]):
         self.sl.wait_and_input_text(self.TITLE_FIELD, title)

@@ -27,6 +27,10 @@ class TestContentDisplayed:
         register.go_to_register()
         navigation.wait_until_nav_bar_is_displayed()
 
+        # site post form
+        site_post.go_to_form()
+        navigation.wait_until_nav_bar_is_displayed()
+
         # homepage
         homepage.go_to_homepage()
         navigation.wait_until_nav_bar_is_displayed()
