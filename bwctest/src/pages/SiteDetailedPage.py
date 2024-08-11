@@ -140,3 +140,6 @@ class SiteDetailedPage(SiteDetailedPageLocators):
 
     def wait_until_delete_site_button_is_displayed(self):
         self.sl.wait_until_element_is_visible(self.DELETE_SITE_BTN)
+
+    def click_delete_site_button(self):
+        self.sl.wait_and_click(self.DELETE_SITE_BTN)

@@ -3,7 +3,7 @@ from src.pages.locators.HomePageLocators import HomePageLocators
 from src.helpers.config_helpers import get_base_url
 from selenium.webdriver.common.by import By
 import random
-from selenium.common.exceptions import ElementNotInteractableException
+from selenium.common.exceptions import ElementNotInteractableException, NoSuchElementException
 import time
 
 class HomePage(HomePageLocators):
@@ -80,7 +80,10 @@ class HomePage(HomePageLocators):
         except ElementNotInteractableException:
             time.sleep(2)
             self.driver.find_element(By.XPATH, f'/html/body/main/div[2]/div/div[3]/div[2]/div[{number}]/a/div').click()
-    
+        except NoSuchElementException:
+            time.sleep(2)
+            self.driver.find_element(By.XPATH, f'/html/body/main/div[2]/div/div[3]/div[2]/div[{number}]/a/div').click()
+
     def click_random_site(self):
         number = len(self.get_all_sites())
         random_number = random.randint(1, number)
