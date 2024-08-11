@@ -14,14 +14,14 @@ class SiteDetailedPageLocators():
     SITE_REVIEWS = (By.CSS_SELECTOR, 'div.card-body')
     REVIEW_LABEL = (By.CSS_SELECTOR, 'h3')
 
-    POST_REVIEW_BTN = (By.XPATH, '/html/body/main/div[2]/div/div[2]/div/button')
+    OPEN_REVIEW_FORM_BTN = (By.XPATH, '/html/body/main/div[2]/div/div[2]/div/button')
     RATING_STAR_1 = (By.XPATH, '/html/body/main/div[2]/div/div[2]/div/div/div/div/div[2]/form/div[1]/fieldset/label[1]')
     RATING_STAR_2 = (By.XPATH, '/html/body/main/div[2]/div/div[2]/div/div/div/div/div[2]/form/div[1]/fieldset/label[2]')
     RATING_STAR_3 = (By.XPATH, '/html/body/main/div[2]/div/div[2]/div/div/div/div/div[2]/form/div[1]/fieldset/label[3]')
     RATING_STAR_4 = (By.XPATH, '/html/body/main/div[2]/div/div[2]/div/div/div/div/div[2]/form/div[1]/fieldset/label[4]')
     RATING_STAR_5 = (By.XPATH, '/html/body/main/div[2]/div/div[2]/div/div/div/div/div[2]/form/div[1]/fieldset/label[5]')
     COMMENT_FIELD = (By.CSS_SELECTOR, 'textarea')
-    SEND_REVIEW_BTN = (By.XPATH, '/html/body/main/div[2]/div/div[2]/div/div/div/div/div[2]/form/div[3]/button')
+    POST_REVIEW_BTN = (By.XPATH, '/html/body/main/div[2]/div/div[2]/div/div/div/div/div[2]/form/div[3]/button')
 
     STAR_ON_REVIEW = (By.CSS_SELECTOR, 'div.card-body p.starability-result')
     COMMENT_ON_REVIEW = (By.XPATH, '/html/body/main/div[4]/div[1]/div/p[2]')

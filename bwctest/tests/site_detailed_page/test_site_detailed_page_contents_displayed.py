@@ -62,7 +62,7 @@ class TestSiteDetailedPageContentDisplayed:
         homepage.go_to_homepage()
         homepage.click_random_site()
 
-        sdp.wait_until_post_review_button_is_not_displayed()
+        sdp.wait_until_open_review_form_button_is_not_displayed()
 
     @pytest.mark.tcid708
     def test_post_review_button_is_displayed_for_registered_user(self):
@@ -74,4 +74,4 @@ class TestSiteDetailedPageContentDisplayed:
         homepage.go_to_homepage()
         homepage.click_random_site()
 
-        sdp.wait_until_post_review_button_is_displayed()
+        sdp.wait_until_open_review_form_button_is_displayed()

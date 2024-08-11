@@ -65,20 +65,20 @@ class SiteDetailedPage(SiteDetailedPageLocators):
     def wait_until_username_is_displayed(self):
         self.sl.wait_until_element_is_visible(self.SITE_MAP)
 
-    def wait_until_post_review_button_is_not_displayed(self):
-        self.sl.wait_until_element_is_invisible(self.POST_REVIEW_BTN)
+    def wait_until_open_review_form_button_is_not_displayed(self):
+        self.sl.wait_until_element_is_invisible(self.OPEN_REVIEW_FORM_BTN)
 
-    def wait_until_post_review_button_is_displayed(self):
-        self.sl.wait_until_element_is_visible(self.POST_REVIEW_BTN)
+    def wait_until_open_review_form_button_is_displayed(self):
+        self.sl.wait_until_element_is_visible(self.OPEN_REVIEW_FORM_BTN)
 
-    def click_post_review_button(self):
+    def click_open_review_form_button(self):
         self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
         try:
-            self.sl.wait_and_click(self.POST_REVIEW_BTN)
+            self.sl.wait_and_click(self.OPEN_REVIEW_FORM_BTN)
         except ElementNotInteractableException:
             time.sleep(2)
-            self.sl.wait_and_click(self.POST_REVIEW_BTN)
+            self.sl.wait_and_click(self.OPEN_REVIEW_FORM_BTN)
 
     def choose_star(self, rating=5):
         if rating == 1:
@@ -97,14 +97,14 @@ class SiteDetailedPage(SiteDetailedPageLocators):
     def input_comment(self, comment="TestComment"):
         self.sl.wait_and_input_text(self.COMMENT_FIELD, comment)
 
-    def click_send_review_button(self):
-        self.sl.wait_and_click(self.SEND_REVIEW_BTN)
+    def click_post_review_button(self):
+        self.sl.wait_and_click(self.POST_REVIEW_BTN)
 
     def post_review(self, comment="TestComment"):
-        self.click_post_review_button()
+        self.click_open_review_form_button()
         self.choose_star()
         self.input_comment(comment=comment)
-        self.click_send_review_button()
+        self.click_post_review_button()
 
     def get_all_reviews(self):
         return self.sl.wait_and_get_elements(self.SITE_REVIEWS)
