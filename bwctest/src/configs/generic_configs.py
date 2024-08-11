@@ -27,4 +27,4 @@ class GenericConfigs:
     SITE_WITH_REVIEW_URL = ("https://belgrade-with-kids.onrender.com/63b41e48ed3831de2edd565f")
 
     NEW_REVIEW_POST_MSG = "The review is posted!"
-    REVIEW_DELETE_MSG = "The review is deleted! "
+    REVIEW_DELETE_MSG = "The review is deleted!"

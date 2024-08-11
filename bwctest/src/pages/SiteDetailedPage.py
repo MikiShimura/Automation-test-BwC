@@ -2,6 +2,7 @@ from src.SeleniumExtended import SeleniumExtended
 from src.pages.locators.SiteDetailedPageLocators import SiteDetailedPageLocators
 from selenium.common.exceptions import ElementNotInteractableException
 import time
+from selenium.webdriver.common.by import By
 
 class SiteDetailedPage(SiteDetailedPageLocators):
 
@@ -111,3 +112,19 @@ class SiteDetailedPage(SiteDetailedPageLocators):
     
     def comment_invalid_alert_is_displayed(self):
         self.sl.wait_until_element_is_visible(self.INVARID_ALERT_COMMENT)
+
+    def wait_until_review_form_label_is_displayed(self, exp_text):
+        self.sl.wait_until_element_contains_text(self.REVIEW_FORM_LABEL, exp_text)
+
+    def wait_until_post_review_button_is_displayed(self):
+        self.sl.wait_until_element_is_visible(self.POST_REVIEW_BTN)
+
+    def wait_until_delete_button_of_latest_review_is_displayed(self, number):
+        self.driver.find_element(By.XPATH, f'/html/body/main/div[4]/div[{number}]/div/form/button').is_displayed()
+
+    def click_delete_button_of_latest_review(self, number):
+        try: 
+            self.driver.find_element(By.XPATH, f'/html/body/main/div[4]/div[{number}]/div/form/button').click()
+        except ElementNotInteractableException:
+            time.sleep(2)
+            self.driver.find_element(By.XPATH, f'/html/body/main/div[4]/div[{number}]/div/form/button').click()

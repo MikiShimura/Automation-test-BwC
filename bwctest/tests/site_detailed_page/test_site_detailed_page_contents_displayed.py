@@ -75,3 +75,37 @@ class TestSiteDetailedPageContentDisplayed:
         homepage.click_random_site()
 
         sdp.wait_until_open_review_form_button_is_displayed()
+
+    @pytest.mark.tcid711
+    def test_review_form_label_is_displayed_on_post_review_form(self):
+        login = LoginPage(self.driver)
+        sdp = SiteDetailedPage(self.driver)
+
+        login.valid_login()
+        self.driver.get(GenericConfigs.SITE_WITH_REVIEW_URL)
+
+        sdp.click_open_review_form_button()
+        sdp.wait_until_review_form_label_is_displayed("Post review")
+
+    @pytest.mark.tcid713
+    def test_post_review_button_is_displayed_on_post_review_form(self):
+        login = LoginPage(self.driver)
+        sdp = SiteDetailedPage(self.driver)
+
+        login.valid_login()
+        self.driver.get(GenericConfigs.SITE_WITH_REVIEW_URL)
+
+        sdp.click_open_review_form_button()
+        sdp.wait_until_post_review_button_is_displayed
+
+    @pytest.mark.tcid714
+    def test_delete_review_button_is_displayed(self):
+        login = LoginPage(self.driver)
+        sdp = SiteDetailedPage(self.driver)
+
+        login.valid_login()
+        self.driver.get(GenericConfigs.SITE_WITH_REVIEW_URL)
+
+        sdp.post_new_review()
+        number_of_reviews = len(sdp.get_all_reviews())
+        sdp.wait_until_delete_button_of_latest_review_is_displayed(number_of_reviews)
