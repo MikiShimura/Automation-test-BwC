@@ -109,3 +109,55 @@ class TestSiteDetailedPageContentDisplayed:
         sdp.post_new_review()
         number_of_reviews = len(sdp.get_all_reviews())
         sdp.wait_until_delete_button_of_latest_review_is_displayed(number_of_reviews)
+
+    @pytest.mark.tcid716
+    def test_edit_site_button_is_not_displayed(self):
+        login = LoginPage(self.driver)
+        homepage = HomePage(self.driver)
+        sdp = SiteDetailedPage(self.driver)
+
+        login.valid_login()
+
+        homepage.go_to_homepage()
+        homepage.click_random_site()
+
+        sdp.wait_until_edit_site_button_is_not_displayed()
+
+    @pytest.mark.tcid717
+    def test_edit_site_button_is_displayed_for_admin(self):
+        login = LoginPage(self.driver)
+        homepage = HomePage(self.driver)
+        sdp = SiteDetailedPage(self.driver)
+
+        login.valid_login(admin=True)
+
+        homepage.go_to_homepage()
+        homepage.click_random_site()
+
+        sdp.wait_until_edit_site_button_is_displayed()
+
+    @pytest.mark.tcid718
+    def test_delete_site_button_is_not_displayed(self):
+        login = LoginPage(self.driver)
+        homepage = HomePage(self.driver)
+        sdp = SiteDetailedPage(self.driver)
+
+        login.valid_login()
+
+        homepage.go_to_homepage()
+        homepage.click_random_site()
+
+        sdp.wait_until_delete_site_button_is_not_displayed()
+
+    @pytest.mark.tcid719
+    def test_delete_site_button_is_displayed_for_admin(self):
+        login = LoginPage(self.driver)
+        homepage = HomePage(self.driver)
+        sdp = SiteDetailedPage(self.driver)
+
+        login.valid_login(admin=True)
+
+        homepage.go_to_homepage()
+        homepage.click_random_site()
+
+        sdp.wait_until_delete_site_button_is_displayed()

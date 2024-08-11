@@ -11,6 +11,9 @@ class SiteDetailedPageLocators():
     SITE_URL = (By.XPATH, '/html/body/main/div[1]/div[1]/div[2]/p[4]')
     SITE_MAP = (By.ID, 'map')
 
+    EDIT_SITE_BTN = (By.XPATH, '/html/body/main/div[1]/div[2]/a')
+    DELETE_SITE_BTN = (By.XPATH, '/html/body/main/div[1]/div[2]/form/button')
+
     SITE_REVIEWS = (By.CSS_SELECTOR, 'div.card-body')
     REVIEW_LABEL = (By.CSS_SELECTOR, 'h3')
 

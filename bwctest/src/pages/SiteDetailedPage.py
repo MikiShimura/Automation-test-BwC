@@ -128,3 +128,15 @@ class SiteDetailedPage(SiteDetailedPageLocators):
         except ElementNotInteractableException:
             time.sleep(2)
             self.driver.find_element(By.XPATH, f'/html/body/main/div[4]/div[{number}]/div/form/button').click()
+
+    def wait_until_edit_site_button_is_not_displayed(self):
+        self.sl.wait_until_element_is_invisible(self.EDIT_SITE_BTN)
+
+    def wait_until_edit_site_button_is_displayed(self):
+        self.sl.wait_until_element_is_visible(self.EDIT_SITE_BTN)
+
+    def wait_until_delete_site_button_is_not_displayed(self):
+        self.sl.wait_until_element_is_invisible(self.DELETE_SITE_BTN)
+
+    def wait_until_delete_site_button_is_displayed(self):
+        self.sl.wait_until_element_is_visible(self.DELETE_SITE_BTN)

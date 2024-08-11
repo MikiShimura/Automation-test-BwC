@@ -5,7 +5,7 @@ from src.pages.Alert import Alert
 from src.configs.generic_configs import GenericConfigs
 
 @pytest.mark.usefixtures("init_driver")
-class TestPostReviewsNegative:
+class TestPostDeleteReviewsNegative:
 
     @pytest.mark.tcid710
     def test_post_new_review_without_comment(self):

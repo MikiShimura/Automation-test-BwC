@@ -73,7 +73,7 @@ class TestContentDisplayed:
         navigation.wait_until_login_button_is_displayed()
         
     @pytest.mark.tcid404
-    def test_login_and_register_button_is_displayed_for_logged_in_user(self):
+    def test_login_and_register_button_is_displayed(self):
         homepage = HomePage(self.driver)
         navigation = NavigationBar(self.driver)
 

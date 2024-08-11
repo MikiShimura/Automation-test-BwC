@@ -5,7 +5,7 @@ from src.pages.Alert import Alert
 from src.configs.generic_configs import GenericConfigs
 
 @pytest.mark.usefixtures("init_driver")
-class TestPostReviewsPositive:
+class TestPostDeleteReviewsPositive:
 
     @pytest.mark.tcid709
     def test_post_new_review_as_registered_user(self):
