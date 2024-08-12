@@ -4,7 +4,6 @@ import os
 from selenium.common.exceptions import ElementNotInteractableException
 import time
 from src.helpers.config_helpers import get_base_url
-from selenium.webdriver.common.by import By
 
 class SitePostForm(SitePostFormLocators):
 

@@ -3,8 +3,6 @@ from src.pages.HomePage import HomePage
 from src.pages.SearchSection import SearchSection
 from src.pages.MainMap import MainMap
 from src.pages.SiteDetailedPage import SiteDetailedPage
-from src.configs.generic_configs import GenericConfigs
-from src.helpers.config_helpers import get_base_url
 
 
 @pytest.mark.usefixtures("init_driver")

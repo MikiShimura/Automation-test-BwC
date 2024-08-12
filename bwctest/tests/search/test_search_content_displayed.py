@@ -1,9 +1,6 @@
 import pytest
-from src.pages.LoginPage import LoginPage
 from src.pages.HomePage import HomePage
-from src.pages.NavigationBar import NavigationBar
 from src.pages.SearchSection import SearchSection
-from src.configs.generic_configs import GenericConfigs
 
 
 @pytest.mark.usefixtures("init_driver")

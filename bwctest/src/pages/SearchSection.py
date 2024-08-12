@@ -90,6 +90,8 @@ class SearchSection(SearchSectionLocators):
                 or self.driver.find_element(self.CATEGORY_CHECKBOX_EDUCATION[0], self.CATEGORY_CHECKBOX_EDUCATION[1]).is_selected()):
             return True
         
+#   TimeOutError occur if func self.sl.wait_until_element_is_selected() is used
+        
     def ages_are_not_selected(self):
         if not (self.driver.find_element(self.AGES_CHECKBOX_0_1[0], self.AGES_CHECKBOX_0_1[1]).is_selected()
                 or self.driver.find_element(self.AGES_CHECKBOX_2_3[0], self.AGES_CHECKBOX_2_3[1]).is_selected()

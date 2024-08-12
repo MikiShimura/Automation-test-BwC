@@ -1,6 +1,5 @@
 import pytest
 from src.pages.LoginPage import LoginPage
-from src.pages.RegisterPage import RegisterPage
 from src.pages.HomePage import HomePage
 from src.pages.NavigationBar import NavigationBar
 from src.pages.SitePostForm import SitePostForm

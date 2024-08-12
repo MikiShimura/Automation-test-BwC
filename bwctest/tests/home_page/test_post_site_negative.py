@@ -3,8 +3,6 @@ from src.pages.LoginPage import LoginPage
 from src.pages.HomePage import HomePage
 from src.pages.NavigationBar import NavigationBar
 from src.pages.SitePostForm import SitePostForm
-from src.configs.generic_configs import GenericConfigs
-from src.helpers.config_helpers import get_base_url
 
 
 @pytest.mark.usefixtures("init_driver")

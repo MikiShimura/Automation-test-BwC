@@ -1,8 +1,6 @@
 import pytest
 from src.pages.LoginPage import LoginPage
 from src.pages.HomePage import HomePage
-from src.pages.SearchSection import SearchSection
-from src.pages.MainMap import MainMap
 from src.pages.SiteDetailedPage import SiteDetailedPage
 from src.configs.generic_configs import GenericConfigs
 

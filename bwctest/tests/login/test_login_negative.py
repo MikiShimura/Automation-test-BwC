@@ -1,6 +1,5 @@
 import pytest
 from src.pages.LoginPage import LoginPage
-from src.pages.HomePage import HomePage
 from src.pages.Alert import Alert
 from src.configs.generic_configs import GenericConfigs
 
