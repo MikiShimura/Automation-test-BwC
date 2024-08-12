@@ -87,6 +87,20 @@ class TestSiteDetailedPageContentDisplayed:
         sdp.click_open_review_form_button()
         sdp.wait_until_review_form_label_is_displayed("Post review")
 
+    @pytest.mark.tcid712
+    def test_stars_are_selectable_on_post_review_form(self):
+        login = LoginPage(self.driver)
+        sdp = SiteDetailedPage(self.driver)
+
+        login.valid_login()
+        self.driver.get(GenericConfigs.SITE_WITH_REVIEW_URL)
+
+        sdp.click_open_review_form_button()
+        sdp.wait_until_star_is_displayed()
+        star_to_be_selected = 4
+        sdp.choose_star(star_to_be_selected)
+        sdp.star_is_selected(star_to_be_selected)
+
     @pytest.mark.tcid713
     def test_post_review_button_is_displayed_on_post_review_form(self):
         login = LoginPage(self.driver)

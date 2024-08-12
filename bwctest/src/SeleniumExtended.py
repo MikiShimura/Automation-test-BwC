@@ -74,3 +74,8 @@ class SeleniumExtended():
                 EC.visibility_of_element_located(locator))
         element_text = elm.text
         return element_text
+
+    def wait_until_element_is_selected(self, locator, timeout=None):
+        timeout = timeout if timeout else self.default_timeout
+        WebDriverWait(self.driver, timeout).until(
+            EC.element_located_to_be_selected(locator))

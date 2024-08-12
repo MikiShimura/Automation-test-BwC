@@ -81,7 +81,7 @@ class SiteDetailedPage(SiteDetailedPageLocators):
             time.sleep(2)
             self.sl.wait_and_click(self.OPEN_REVIEW_FORM_BTN)
 
-    def choose_star(self, rating=5):
+    def choose_star(self, rating):
         if rating == 1:
             self.sl.wait_and_click(self.RATING_STAR_1)
         elif rating == 2:
@@ -101,11 +101,25 @@ class SiteDetailedPage(SiteDetailedPageLocators):
     def click_post_review_button(self):
         self.sl.wait_and_click(self.POST_REVIEW_BTN)
 
-    def post_new_review(self, comment="TestComment"):
+    def post_new_review(self, comment="TestComment", rating=5):
         self.click_open_review_form_button()
-        self.choose_star()
+        self.choose_star(rating=rating)
         self.input_comment(comment=comment)
         self.click_post_review_button()
+
+    def star_is_selected(self, rating):
+        if rating == 1:
+            self.sl.wait_until_element_is_selected(self.RATING_STAR_SELECT_1)
+        elif rating == 2:
+            self.sl.wait_until_element_is_selected(self.RATING_STAR_SELECT_2)
+        elif rating == 3:
+            self.sl.wait_until_element_is_selected(self.RATING_STAR_SELECT_3)
+        elif rating == 4:
+            self.sl.wait_until_element_is_selected(self.RATING_STAR_SELECT_4)
+        elif rating == 5:
+            self.sl.wait_until_element_is_selected(self.RATING_STAR_SELECT_5)
+        else:
+            print("Choose stars from 1 to 5")
 
     def get_all_reviews(self):
         return self.sl.wait_and_get_elements(self.SITE_REVIEWS)
