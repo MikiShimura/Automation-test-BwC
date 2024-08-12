@@ -4,6 +4,7 @@ import os
 from selenium.common.exceptions import ElementNotInteractableException
 import time
 from src.helpers.config_helpers import get_base_url
+from selenium.webdriver.common.by import By
 
 class SitePostForm(SitePostFormLocators):
 
@@ -24,6 +25,9 @@ class SitePostForm(SitePostFormLocators):
 
     def input_site_title(self, title):
         self.sl.wait_and_input_text(self.TITLE_FIELD, title)
+    
+    def clear_site_title(self):
+        self.sl.wait_and_get_element(self.TITLE_FIELD).clear()
 
     def input_site_description(self, description):
         self.sl.wait_and_input_text(self.DESCRIPTION_FIELD, description)
@@ -65,7 +69,7 @@ class SitePostForm(SitePostFormLocators):
     def uproad_site_image(self, uproad):
         if uproad:
             image_path = os.getcwd() + '\\test1.jpg' 
-            elm = self.sl.wait_and_get_elements(self.IMG_UPROAD_BTN)[0]
+            elm = self.sl.wait_and_get_element(self.IMG_UPROAD_BTN)
             elm.send_keys(image_path)
 
     def click_done_button(self):
@@ -74,6 +78,13 @@ class SitePostForm(SitePostFormLocators):
         except ElementNotInteractableException: 
             time.sleep(2)
             self.sl.wait_and_click(self.DONE_BTN)
+
+    def click_edit_button(self):
+        try: 
+            self.sl.wait_and_click(self.EDIT_BTN)
+        except ElementNotInteractableException: 
+            time.sleep(2)
+            self.sl.wait_and_click(self.EDIT_BTN)
     
     def post_new_site(self, title=site_default["title"], description=site_default["description"], 
                       category=site_default["category"], ages=site_default["ages"], 

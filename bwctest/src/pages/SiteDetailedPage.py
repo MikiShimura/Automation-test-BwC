@@ -134,6 +134,9 @@ class SiteDetailedPage(SiteDetailedPageLocators):
 
     def wait_until_edit_site_button_is_displayed(self):
         self.sl.wait_until_element_is_visible(self.EDIT_SITE_BTN)
+    
+    def click_edit_site_button(self):
+        self.sl.wait_and_click(self.EDIT_SITE_BTN)
 
     def wait_until_delete_site_button_is_not_displayed(self):
         self.sl.wait_until_element_is_invisible(self.DELETE_SITE_BTN)

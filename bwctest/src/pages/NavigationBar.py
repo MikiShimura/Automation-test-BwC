@@ -20,8 +20,8 @@ class NavigationBar(NavigationBarLocators):
         self.sl.wait_until_element_is_visible(self.NAV_BAR)
 
     def get_nav_element(self):
-        elements = self.sl.wait_and_get_elements(self.NAV_BAR)
-        return elements[0]
+        element = self.sl.wait_and_get_element(self.NAV_BAR)
+        return element
     
     def wait_until_logout_button_is_displayed(self):
         self.sl.wait_until_element_is_visible(self.LOGOUT_BTN)

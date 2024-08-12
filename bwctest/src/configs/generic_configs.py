@@ -23,6 +23,7 @@ class GenericConfigs:
 
     NEW_SITE_POST_MSG = "New place is registered!"
     SITE_DELETE_MSG = "The place is deleted!"
+    SITE_EDIT_MSG = "The place is edited!"
     
     SITE_WITHOUT_REVIEW_URL = ("https://belgrade-with-kids.onrender.com/63b55ca691ea338d5a441609")
     SITE_WITH_REVIEW_URL = ("https://belgrade-with-kids.onrender.com/63b41e48ed3831de2edd565f")

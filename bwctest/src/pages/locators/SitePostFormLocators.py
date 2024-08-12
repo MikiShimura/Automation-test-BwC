@@ -21,6 +21,7 @@ class SitePostFormLocators():
     IMG_UPROAD_BTN = (By.ID, "image")
 
     DONE_BTN = (By.XPATH, "/html/body/main/div/div/form/div[11]/button")
+    EDIT_BTN = (By.XPATH, "/html/body/main/div/div/form/div[12]/button")
 
     INVALID_ALERT = (By.CSS_SELECTOR, "div.invalid-feedback")
     INVALID_ALERT_TITLE = (By.XPATH, "/html/body/main/div/div/form/div[1]/div")
