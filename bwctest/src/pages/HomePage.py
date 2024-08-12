@@ -3,7 +3,7 @@ from src.pages.locators.HomePageLocators import HomePageLocators
 from src.helpers.config_helpers import get_base_url
 from selenium.webdriver.common.by import By
 import random
-from selenium.common.exceptions import ElementNotInteractableException, NoSuchElementException
+from selenium.common.exceptions import ElementNotInteractableException, NoSuchElementException, TimeoutException
 import time
 
 class HomePage(HomePageLocators):
@@ -41,7 +41,10 @@ class HomePage(HomePageLocators):
         return element
     
     def get_all_sites(self):
-        return self.sl.wait_and_get_elements(self.ALL_SITE_CARDS)
+        try:
+            return self.sl.wait_and_get_elements(self.ALL_SITE_CARDS)
+        except TimeoutException:
+            return 0
 
     def get_site_image(self, parent):
         return parent.find_element(self.SITE_IMG[0], self.SITE_IMG[1])
