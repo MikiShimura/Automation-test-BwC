@@ -45,18 +45,9 @@ class HomePage(HomePageLocators):
             return self.sl.wait_and_get_elements(self.ALL_SITE_CARDS)
         except TimeoutException:
             return 0
-
-    def get_site_image(self, parent):
-        return parent.find_element(self.SITE_IMG[0], self.SITE_IMG[1])
     
     def get_site_title(self, parent):
         return parent.find_element(self.SITE_TITLE[0], self.SITE_TITLE[1]).text
-    
-    def get_site_categories(self, parent):
-        return parent.find_element(self.SITE_CATEGORIES[0], self.SITE_CATEGORIES[1])
-    
-    def get_site_ages(self, parent):
-        return parent.find_element(self.SITE_AGES[0], self.SITE_AGES[1])
     
     def wait_until_site_image_is_displayed(self, parent):
         elm = parent.find_element(self.SITE_IMG[0], self.SITE_IMG[1])

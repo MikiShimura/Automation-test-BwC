@@ -35,8 +35,8 @@ class SiteDetailedPageLocators():
     REVIEW_FORM_LABEL = (By.ID, 'reviewModalLabel')
 
     STAR_ON_REVIEW = (By.CSS_SELECTOR, 'div.card-body p.starability-result')
-    COMMENT_ON_REVIEW = (By.XPATH, '/html/body/main/div[4]/div[1]/div/p[2]')
-    USERNAME_ON_REVIEW = (By.XPATH, '/html/body/main/div[4]/div[1]/div/p[3]')
-    DELETE_REVIEW_BTN = (By.XPATH, '/html/body/main/div[3]/div[{n}]/div/form/button')
+    COMMENT_ON_REVIEW = (By.CSS_SELECTOR, 'p.comment')
+    USERNAME_ON_REVIEW = (By.CSS_SELECTOR, 'p.username')
+    DELETE_REVIEW_BTN = (By.CSS_SELECTOR, 'button.delete-review')
 
     INVARID_ALERT_COMMENT = (By.XPATH, '/html/body/main/div[2]/div/div[2]/div/div/div/div/div[2]/form/div[2]/div')

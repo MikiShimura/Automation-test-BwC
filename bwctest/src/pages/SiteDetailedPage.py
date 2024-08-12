@@ -124,6 +124,9 @@ class SiteDetailedPage(SiteDetailedPageLocators):
     def get_all_reviews(self):
         return self.sl.wait_and_get_elements(self.SITE_REVIEWS)
     
+    def get_review_username(self, parent):
+        return parent.find_element(self.USERNAME_ON_REVIEW[0], self.USERNAME_ON_REVIEW[1]).text
+    
     def comment_invalid_alert_is_displayed(self):
         self.sl.wait_until_element_is_visible(self.INVARID_ALERT_COMMENT)
 
@@ -133,8 +136,8 @@ class SiteDetailedPage(SiteDetailedPageLocators):
     def wait_until_post_review_button_is_displayed(self, exp_text):
         self.sl.wait_until_element_contains_text(self.POST_REVIEW_BTN, exp_text)
 
-    def wait_until_delete_button_of_latest_review_is_displayed(self, number):
-        self.driver.find_element(By.XPATH, f'/html/body/main/div[4]/div[{number}]/div/form/button').is_displayed()
+    def delete_review_button_is_displayed(self, parent):
+        parent.find_element(self.DELETE_REVIEW_BTN[0], self.DELETE_REVIEW_BTN[1])
 
     def click_delete_button_of_latest_review(self, number):
         try: 

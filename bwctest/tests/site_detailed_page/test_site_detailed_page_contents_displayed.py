@@ -115,12 +115,19 @@ class TestSiteDetailedPageContentDisplayed:
         login = LoginPage(self.driver)
         sdp = SiteDetailedPage(self.driver)
 
+        # Login as Miki
         login.valid_login()
         self.driver.get(GenericConfigs.SITE_WITH_REVIEW_URL)
-
         sdp.post_new_review()
-        number_of_reviews = len(sdp.get_all_reviews())
-        sdp.wait_until_delete_button_of_latest_review_is_displayed(number_of_reviews)
+
+        # search reviews whose username is "Miki" and return index
+        reviews = sdp.get_all_reviews()
+        list = [sdp.get_review_username(review) for review in reviews]
+        index_of_specified_user_review = [i for i, x in enumerate(list) if x == "Miki"]
+                
+        # check if reviews[index] has buttons in roop
+        for n in index_of_specified_user_review:
+            sdp.delete_review_button_is_displayed(reviews[n])
 
     @pytest.mark.tcid716
     def test_edit_site_button_is_not_displayed(self):
