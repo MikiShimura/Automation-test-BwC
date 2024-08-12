@@ -63,7 +63,7 @@ class HomePage(HomePageLocators):
         elm = parent.find_element(self.SITE_TITLE[0], self.SITE_TITLE[1])
         elm.is_displayed()
     
-    def wait_until_site_categories_are_displayed(self, parent):
+    def wait_until_site_category_is_displayed(self, parent):
         elm = parent.find_element(self.SITE_CATEGORIES[0], self.SITE_CATEGORIES[1])
         elm.is_displayed()
     
