@@ -73,8 +73,6 @@ class SiteDetailedPage(SiteDetailedPageLocators):
         self.sl.wait_until_element_is_visible(self.OPEN_REVIEW_FORM_BTN)
 
     def click_open_review_form_button(self):
-        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-
         try:
             self.sl.wait_and_click(self.OPEN_REVIEW_FORM_BTN)
         except ElementNotInteractableException:
