@@ -130,8 +130,8 @@ class SiteDetailedPage(SiteDetailedPageLocators):
     def wait_until_review_form_label_is_displayed(self, exp_text):
         self.sl.wait_until_element_contains_text(self.REVIEW_FORM_LABEL, exp_text)
 
-    def wait_until_post_review_button_is_displayed(self):
-        self.sl.wait_until_element_is_visible(self.POST_REVIEW_BTN)
+    def wait_until_post_review_button_is_displayed(self, exp_text):
+        self.sl.wait_until_element_contains_text(self.POST_REVIEW_BTN, exp_text)
 
     def wait_until_delete_button_of_latest_review_is_displayed(self, number):
         self.driver.find_element(By.XPATH, f'/html/body/main/div[4]/div[{number}]/div/form/button').is_displayed()

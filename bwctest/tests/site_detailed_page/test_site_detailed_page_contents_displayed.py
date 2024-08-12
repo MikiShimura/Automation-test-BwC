@@ -110,7 +110,7 @@ class TestSiteDetailedPageContentDisplayed:
         self.driver.get(GenericConfigs.SITE_WITH_REVIEW_URL)
 
         sdp.click_open_review_form_button()
-        sdp.wait_until_post_review_button_is_displayed
+        sdp.wait_until_post_review_button_is_displayed("Post review")
 
     @pytest.mark.tcid714
     def test_delete_review_button_is_displayed(self):
