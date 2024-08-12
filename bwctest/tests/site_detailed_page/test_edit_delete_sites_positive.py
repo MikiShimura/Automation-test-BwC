@@ -75,3 +75,34 @@ class TestEditDeleteSitesPositive:
 
         number_of_site_after = len(homepage.get_all_sites())
         assert number_of_site_before - 1 == number_of_site_after, "Site is not deleted on homepage"
+
+    @pytest.mark.tcid722
+    def test_edit_site_without_change(self):
+        login = LoginPage(self.driver)
+        homepage = HomePage(self.driver)
+        navigation = NavigationBar(self.driver)
+        site_post = SitePostForm(self.driver)
+        sdp = SiteDetailedPage(self.driver)
+        alert = Alert(self.driver)
+
+        login.valid_login(admin=True)
+
+        # create site first
+        navigation.click_post_new_site_button()
+        site_post.post_new_site(ages=2)
+
+        homepage.go_to_homepage()
+        number_of_site = len(homepage.get_all_sites())
+        homepage.click_site(number_of_site)
+
+        title_before = sdp.get_site_title_text()
+
+        sdp.click_edit_site_button()
+
+        site_post.click_edit_button()
+
+        expected_message = GenericConfigs.SITE_EDIT_MSG
+        alert.wait_until_success_message_is_displayed(expected_message)
+
+        title_after = sdp.get_site_title_text()
+        assert title_before == title_after, "Site infomation shouldn't be changed."
