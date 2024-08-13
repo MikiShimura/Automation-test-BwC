@@ -19,7 +19,7 @@ class TestRegisterNegative:
         register.input_register_password(rand_info["password"])
         register.click_register_button()
 
-        expected_error = "No username was given"
+        expected_error = GenericConfigs.REGISTER_EMPTY_USERNAME_ERR_MSG
         alert.wait_until_error_message_is_displayed(expected_error)
 
     @pytest.mark.tcid205
@@ -34,7 +34,7 @@ class TestRegisterNegative:
         register.input_register_password(rand_info["password"])
         register.click_register_button()
 
-        expected_error = "No email was given"
+        expected_error = GenericConfigs.REGISTER_EMPTY_EMAIL_ERR_MSG
         alert.wait_until_error_message_is_displayed(expected_error)
 
     @pytest.mark.tcid206
@@ -49,7 +49,7 @@ class TestRegisterNegative:
         register.input_register_password(rand_info["password"])
         register.click_register_button()
 
-        expected_error = "This email is invalid"
+        expected_error = GenericConfigs.REGISTER_INVALID_EMAIL_ERR_MSG
         alert.wait_until_error_message_is_displayed(expected_error)
 
     @pytest.mark.tcid207
@@ -64,7 +64,7 @@ class TestRegisterNegative:
         register.input_register_password("")
         register.click_register_button()
 
-        expected_error = "No password was given"
+        expected_error = GenericConfigs.REGISTER_EMPTY_PASSWORD_ERR_MSG
         alert.wait_until_error_message_is_displayed(expected_error)
     
     @pytest.mark.tcid208
@@ -79,7 +79,7 @@ class TestRegisterNegative:
         register.input_register_password(rand_info["password"])
         register.click_register_button()
 
-        expected_error = "The username already exist"
+        expected_error = GenericConfigs.REGISTER_EXIST_USERNAME_ERR_MSG
         alert.wait_until_error_message_is_displayed(expected_error)
 
     @pytest.mark.tcid209
@@ -94,5 +94,5 @@ class TestRegisterNegative:
             register.input_register_password(rand_info["password"])
             register.click_register_button()
 
-            expected_error = "The email is already used"
+            expected_error = GenericConfigs.REGISTER_EXIST_EMAIL_ERR_MSG
             alert.wait_until_error_message_is_displayed(expected_error)

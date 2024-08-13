@@ -20,6 +20,8 @@ class GenericConfigs:
     REGISTER_EMPTY_EMAIL_ERR_MSG = "No email was given"
     REGISTER_INVALID_EMAIL_ERR_MSG = "Email must be valid"
     REGISTER_EMPTY_PASSWORD_ERR_MSG = "No password was given"
+    REGISTER_EXIST_USERNAME_ERR_MSG = "The username already exist"
+    REGISTER_EXIST_EMAIL_ERR_MSG = "The email is already used"
 
     NEW_SITE_POST_MSG = "New place is registered!"
     SITE_DELETE_MSG = "The place is deleted!"
