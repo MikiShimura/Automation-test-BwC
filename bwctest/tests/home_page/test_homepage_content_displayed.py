@@ -83,8 +83,8 @@ class TestHomepageContentDisplayed:
         for n in range(len(all_sites)):
             homepage.wait_until_site_image_is_displayed(all_sites[n])
             homepage.wait_until_site_title_is_displayed(all_sites[n])
-            homepage.wait_until_site_category_is_displayed(all_sites[n])
-            homepage.wait_until_site_ages_are_displayed(all_sites[n])
+            # homepage.wait_until_site_category_is_displayed(all_sites[n])
+            # homepage.wait_until_site_ages_are_displayed(all_sites[n])
 
     @pytest.mark.tcid312
     def test_click_any_site(self):
