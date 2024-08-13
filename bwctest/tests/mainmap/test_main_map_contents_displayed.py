@@ -64,8 +64,6 @@ class TestMainMapContentDisplayed:
         map = MainMap(self.driver)
 
         homepage.go_to_homepage()
-        
-        self.driver.execute_script("window.scrollTo(0, 500)")
 
         search.choose_categories_on_seach_section(2)
         search.click_search_button()
